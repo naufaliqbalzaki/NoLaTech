@@ -1,0 +1,512 @@
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  transition: all 0.3s ease-in-out;
+  padding: 15px 0;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0d6efd;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: linear-gradient(to right, rgba(13, 110, 253, 0.8), rgba(10, 88, 202, 0.8)), url('https://picsum.photos/1200/800?random=5');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 60px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); /* Adds a dark overlay */
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-logo {
+  max-width: 150px; /* Adjust the size of the logo */
+  margin-bottom: 20px; /* Adds spacing between the logo and title */
+  transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+  transform: scale(1.1); /* Adds a zoom-in effect on hover */
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds shadow for better readability */
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  font-weight: 300;
+}
+
+.hero-btn {
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #0a58ca;
+  transform: scale(1.05); /* Adds a slight zoom effect when hovering */
+}
+
+/* Hero Section on Mobile */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Footer */
+#footer {
+  background-color: #0d6efd; /* Blue background to match website theme */
+  color: #fff;
+  padding: 20px 15px;
+  text-align: center;
+}
+
+#footer p {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+#footer a {
+  color: #fff; /* Link color in footer */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#footer a:hover {
+  color: #f8f9fa; /* Slightly lighter on hover */
+}
+
+#footer i {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+#footer i:hover {
+  transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+/* Responsive Footer */
+@media (max-width: 767px) {
+  #footer p {
+    font-size: 0.9rem;
+  }
+
+  #footer i {
+    margin: 0 8px;
+    font-size: 1.3rem;
+  }
+}
+
+/* WhatsApp Button Styling */
+.btn-whatsapp {
+  background-color: #25D366; /* WhatsApp green */
+  color: white;
+  border-radius: 50px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+}
+
+.btn-whatsapp i {
+  font-size: 1.5rem; /* Icon size */
+}
+
+.btn-whatsapp span {
+  font-size: 1rem; /* Font size for phone number */
+  margin-left: 8px; /* Adds space between icon and text */
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .btn-whatsapp {
+    padding: 8px 12px;
+  }
+
+  .btn-whatsapp i {
+    font-size: 1.3rem; /* Smaller icon on mobile */
+  }
+
+  .btn-whatsapp span {
+    font-size: 0.9rem; /* Smaller text on mobile */
+  }
+}
+
+/* Section */
+section {
+  padding: 80px 15px;
+}
+
+/* Layanan */
+#layanan {
+  background: linear-gradient(to right, rgba(13, 110, 253, 0.1), rgba(10, 88, 202, 0.1));
+  padding: 80px 15px;
+  transition: all 0.3s ease;
+}
+
+#layanan h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column; /* Ensures the content inside the card stacks vertically */
+  justify-content: space-between; /* Ensures content is spaced within the card */
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 2rem;
+  height: 100%; /* Ensure cards take full height */
+  min-height: 350px; /* Set a minimum height for all cards */
+  background-color: #ffffff;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-card i {
+  color: #0d6efd;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover i {
+  color: #0a58ca;
+}
+
+.service-card h4 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+  flex-grow: 1; /* Allow the text to fill the remaining space */
+}
+
+/* Make sure cards stay aligned */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Ensures all cards align vertically */
+  margin-bottom: 30px;
+}
+
+/* Portofolio */
+#portofolio {
+  padding: 80px 15px;
+  background-color: #f8f9fa;
+}
+
+#portofolio h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.portfolio-overlay p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Make sure images stay aligned */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Testimoni */
+#testimoni {
+  background: linear-gradient(to right, rgba(13, 110, 253, 0.1), rgba(10, 88, 202, 0.1));
+  padding: 80px 15px;
+  color: #333;
+}
+
+#testimoni h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.blockquote {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #555;
+  position: relative;
+  padding-left: 50px;
+  margin: 0;
+}
+
+.blockquote p {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.blockquote-footer {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #333;
+}
+
+.author-name {
+  font-size: 1rem;
+  color: #0d6efd;
+}
+
+/* Carousel Styles */
+.carousel-inner {
+  padding: 20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #0d6efd;
+  transition: transform 0.3s ease;
+}
+
+/* Slide Effect for prev/next button */
+.carousel-control-prev-icon:hover, 
+.carousel-control-next-icon:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Visually hide the carousel control text */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+/* FAQ Section */
+#faq {
+  background-color: #f8f9fa;
+  padding: 80px 15px;
+  color: #333;
+}
+
+#faq h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Accordion Styles */
+.accordion-button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0d6efd;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.accordion-body {
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: #f1f1f1;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid Layout for FAQ */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-6 {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 30px;
+  padding: 0 15px;
+}
+
+/* === DROPDOWN UTAMA MUNCUL SAAT HOVER === */
+.nav-item.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+/* === SUBMENU (Hanya muncul saat hover Pembuatan Website) === */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-top: 0;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+  min-width: 200px;
+}
+
+/* HANYA tampil saat hover ke .dropdown-submenu, bukan saat hover ke Layanan */
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+/* Indikator panah untuk submenu */
+.dropdown-submenu > .dropdown-item::after {
+  content: "▶";
+  float: right;
+  font-size: 0.7rem;
+  margin-left: 5px;
+  color: #999;
+}
+
+/* RESPONSIVE - Nonaktifkan hover behavior di mobile */
+@media (max-width: 991px) {
+  .nav-item.dropdown:hover > .dropdown-menu,
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: none;
+  }
+} 
