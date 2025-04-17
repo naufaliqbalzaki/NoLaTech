@@ -13,36 +13,36 @@ body {
 
 .navbar {
   transition: all 0.3s ease-in-out;
-  padding: 0 15px; /* Memberikan padding kiri dan kanan pada navbar */
-  background-color: #ffffff; /* Latar belakang putih */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
-  margin: 0; /* Menghapus margin */
-  display: flex; /* Flexbox layout untuk navbar */
-  justify-content: space-between; /* Menjaga elemen navbar tersebar */
-  align-items: center; /* Vertically center logo and nav items */
+  padding: 0 15px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-/* Logo dan Teks Navbar */
 .navbar .navbar-brand {
   font-weight: bold;
   color: #0d6efd;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Memastikan logo dan teks berada di kiri */
-  margin-left: 0; /* Menghapus margin kiri */
-  padding-left: 0; /* Menghapus padding kiri */
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .navbar .navbar-brand img {
-  max-height: 75px; /* Ukuran maksimal logo */
+  max-height: 75px;
+  margin-left: -60px;
 }
 
 .navbar .navbar-brand span {
-  margin-left: 5px; /* Memberikan sedikit ruang antara logo dan teks */
-  font-size: 1.2rem; /* Ukuran teks untuk NoLaTech */
+  margin-left: 3px;
+  font-size: 1.5rem;
+  transform: translateY(-5px);
 }
 
-/* Navbar Menu */
 .navbar-nav .nav-link {
   color: #333;
   margin-left: 1.5rem;
@@ -53,46 +53,104 @@ body {
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
   color: #0d6efd;
-  text-decoration: underline; /* Garis bawah saat hover */
+  text-decoration: underline;
 }
 
 .navbar-nav .nav-item.active .nav-link {
-  color: #0d6efd; /* Warna teks link yang aktif */
+  color: #0d6efd;
 }
 
-/* Dropdown */
 .nav-item.dropdown {
-  position: relative; /* Menambahkan posisi relatif pada dropdown */
+  position: relative;
+  display: inline-block; /* Tambahkan untuk memastikan dropdown menjadi blok inline */
 }
 
-/* Navbar Toggler untuk Mobile */
-.navbar-toggler {
-  border-color: #000; /* Border hitam pada tombol toggler */
+/* Mengubah dropdown menu untuk muncul ketika hover */
+.nav-item.dropdown:hover > .dropdown-menu {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+  visibility: visible; /* Pastikan menu tetap terlihat saat hover */
+  opacity: 1; /* Memastikan menu muncul dengan transisi */
 }
 
-.navbar-toggler-icon {
-  background-color: transparent; /* Tidak memberi warna pada ikon */
+/* Mengatur submenu agar tidak perlu klik untuk ditampilkan */
+.dropdown-submenu {
+  position: relative;
 }
 
-/* Navbar on Mobile */
+.dropdown-submenu > .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+  min-width: 200px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block; /* Tampilkan menu pada hover */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hilangkan panah bawaan */
+.dropdown-submenu > .dropdown-toggle::after {
+  content: none;
+}
+
+/* Menambahkan ikon FontAwesome ke submenu */
+.dropdown-submenu > .dropdown-item {
+  display: flex;
+  align-items: center; /* Menyelaraskan ikon dan teks di tengah */
+  padding: 10px 20px; /* Padding untuk memberikan jarak yang lebih baik antara ikon dan teks */
+}
+
+.dropdown-submenu > .dropdown-item i {
+  margin-right: 15px; /* Jarak lebih besar antara ikon dan teks */
+  font-size: 1.2rem; /* Ukuran ikon */
+  transition: transform 0.3s ease;
+}
+
+/* Untuk tampilan desktop */
+@media (min-width: 992px) {
+  .dropdown-submenu > .dropdown-item {
+    padding: 12px 20px; /* Padding lebih besar untuk desktop */
+  }
+
+  .dropdown-submenu > .dropdown-item i {
+    margin-right: 20px; /* Jarak lebih lebar antara ikon dan teks di desktop */
+    font-size: 1.3rem; /* Ukuran ikon lebih besar di desktop */
+  }
+}
+
+/* Untuk tampilan mobile */
 @media (max-width: 991px) {
   .navbar-nav {
     text-align: center;
-    width: 100%; /* Membuat navbar mengambil lebar penuh */
+    width: 100%;
   }
 
   .navbar-nav .nav-item {
     margin: 0.5rem 0;
-    width: 100%; /* Menjamin setiap item navbar mengambil lebar penuh */
+    width: 100%;
   }
 
   .navbar-nav .nav-link {
     font-size: 1.1rem;
-    padding: 10px 0; /* Memberikan ruang pada link */
+    padding: 10px 0;
   }
 
-  .navbar-toggler {
-    z-index: 1060; /* Pastikan tombol toggler selalu di atas menu */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .dropdown-submenu .dropdown-menu {
+    position: relative;
+    left: 0;
   }
 
   /* Prevent dropdown from showing by default */
@@ -101,7 +159,7 @@ body {
     position: relative;
   }
 
-  /* When clicking the dropdown, toggle the visibility */
+  /* Saat klik pada dropdown, tampilkan menu */
   .nav-item.dropdown.show > .dropdown-menu {
     display: block;
     position: static;
@@ -109,39 +167,59 @@ body {
     text-align: center;
   }
 
-  .dropdown-menu {
-    display: none; /* Dropdown menu hidden by default */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #ffffff;
-    border-radius: 0.25rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
+  /* Submenu toggle on click only */
+  .dropdown-submenu > .dropdown-menu {
+    display: none;
   }
 
-  /* Show dropdown menu when the parent is clicked */
+  .dropdown-submenu .dropdown-menu.show {
+    display: block;
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+    padding-left: 1rem;
+  }
+
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: none;
+  }
+
+  .navbar .navbar-brand img {
+    margin-left: 0;
+  }
+
   .nav-item.dropdown.show > .dropdown-menu {
     display: block;
-  }
-
-  /* Submenu Styles */
-  .dropdown-submenu .dropdown-menu {
-    display: none;
-    position: relative;
-    left: 0;
-  }
-
-  .dropdown-submenu.show .dropdown-menu {
-    display: block;
+    width: 100%;
   }
 }
 
-/* Active Link Styling */
-.navbar-nav .nav-item.active .nav-link {
-  color: #0d6efd;
-  font-weight: 600; /* Menambahkan penekanan pada link aktif */
+/* Animasi dropdown */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropdown-submenu .dropdown-menu.show {
+  display: block;
+  animation: slideInLeft 0.3s ease forwards;
 }
 
 /* END NAVBAR */
@@ -364,18 +442,24 @@ body {
 
 /* END HERO SECTION */
 
-/* Footer */
+/* START FOOTER SECTION */
 #footer {
-  background-color: #0d6efd; /* Blue background to match website theme */
-  color: #fff;
-  padding: 20px 15px;
-  text-align: center;
+  background: linear-gradient(135deg, #0d6efd, #0056b3); /* Gradien biru */
+  color: white;
+  padding: 40px 15px;
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1);
 }
 
 #footer p {
   font-size: 1rem;
-  color: #bbb;
+  color: #d1d1d1;
   margin-bottom: 15px;
+}
+
+#footer h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 #footer a {
@@ -385,75 +469,144 @@ body {
 }
 
 #footer a:hover {
-  color: #f8f9fa; /* Slightly lighter on hover */
+  color: #ffd700; /* Change color to gold on hover */
 }
 
 #footer i {
   margin: 0 10px;
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
+  font-size: 2rem; /* Larger icon size */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 #footer i:hover {
-  transform: scale(1.2); /* Slight zoom effect on hover */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  color: #ffd700; /* Highlight icon color on hover */
+}
+
+/* Footer Flexbox Layout */
+#footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px; /* Added gap between columns */
+}
+
+#footer .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  width: 100%;
+  margin-left: 10px; /* Added margin-left to shift the icons to the right */
+}
+
+#footer .social-icons a {
+  font-size: 2rem;
+  margin-right: 20px;
+}
+
+/* Footer Section Alignment */
+#footer .left-col, #footer .center-col, #footer .right-col {
+  flex: 1; /* Equal width for all sections */
+  text-align: center;
+  margin-bottom: 15px; /* Added margin to create space between rows */
+}
+
+#footer .center-col {
+  text-align: center;
+}
+
+#footer .right-col {
+  text-align: center;
 }
 
 /* Responsive Footer */
 @media (max-width: 767px) {
+  #footer .container {
+    flex-direction: column; /* Stack content vertically on small screens */
+    padding: 15px;
+    text-align: center;
+  }
+
   #footer p {
     font-size: 0.9rem;
   }
 
   #footer i {
     margin: 0 8px;
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Smaller icons on mobile */
+  }
+
+  #footer h5 {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
   }
 }
+
+/* Add animation to footer content */
+#footer .container {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* END FOOTER SECTION */
 
 /* WhatsApp Button Styling */
 .btn-whatsapp {
   background-color: #25D366; /* WhatsApp green */
   color: white;
-  border-radius: 50px;
-  padding: 10px 15px;
-  font-size: 1rem;
+  border-radius: 50%;
+  padding: 10px;
   display: flex;
+  justify-content: center;
   align-items: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none;
   position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 20px;
+  bottom: 20px;
+  right: 20px;
+  width: 50px; /* Ensures the button is circular */
+  height: 50px; /* Ensures the button is circular */
+  z-index: 9999; /* Ensures the button stays on top of all content */
 }
 
 .btn-whatsapp i {
-  font-size: 1.5rem; /* Icon size */
+  font-size: 1.8rem; /* Icon size */
 }
 
-.btn-whatsapp span {
-  font-size: 1rem; /* Font size for phone number */
-  margin-left: 8px; /* Adds space between icon and text */
-}
-
+/* Hover effect for WhatsApp button */
 .btn-whatsapp:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  transform: scale(1.1); /* Slight zoom effect on hover */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
 /* Responsive adjustments */
 @media (max-width: 767px) {
   .btn-whatsapp {
-    padding: 8px 12px;
+    width: 45px; /* Smaller button on mobile */
+    height: 45px; /* Smaller button on mobile */
+    padding: 8px; /* Less padding */
   }
 
   .btn-whatsapp i {
-    font-size: 1.3rem; /* Smaller icon on mobile */
-  }
-
-  .btn-whatsapp span {
-    font-size: 0.9rem; /* Smaller text on mobile */
+    font-size: 1.5rem; /* Slightly smaller icon on mobile */
   }
 }
 
@@ -528,7 +681,7 @@ section {
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
-  background-color: #f1faff; /* Highlight on hover */
+  background-color: #e8f0fe; /* Highlight on hover dengan warna yang lebih lembut */
 }
 
 .service-card i {
@@ -631,6 +784,10 @@ section {
 
 /* Responsive untuk Mobile */
 @media (max-width: 767px) {
+  #layanan {
+    padding: 60px 15px; /* Padding lebih kecil pada perangkat mobile */
+  }
+
   .service-card {
     padding: 1.2rem;
   }
@@ -799,7 +956,7 @@ section {
   }
 }
 
-/* END BENEFIT SECTION*/
+/* END BENEFIT SECTION */
 
 /* START PORTOFOLIO SECTION */
 
@@ -1214,48 +1371,3 @@ section {
 }
 
 /* END FAQ */
-
-/* === DROPDOWN UTAMA MUNCUL SAAT HOVER === */
-.nav-item.dropdown:hover > .dropdown-menu {
-  display: block;
-}
-
-/* === SUBMENU (Hanya muncul saat hover Pembuatan Website) === */
-.dropdown-submenu {
-  position: relative;
-}
-
-.dropdown-submenu > .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  margin-top: 0;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  z-index: 1050;
-  min-width: 200px;
-}
-
-/* HANYA tampil saat hover ke .dropdown-submenu, bukan saat hover ke Layanan */
-.dropdown-submenu:hover > .dropdown-menu {
-  display: block;
-}
-
-/* Indikator panah untuk submenu */
-.dropdown-submenu > .dropdown-item::after {
-  content: "▶";
-  float: right;
-  font-size: 0.7rem;
-  margin-left: 5px;
-  color: #999;
-}
-
-/* RESPONSIVE - Nonaktifkan hover behavior di mobile */
-@media (max-width: 991px) {
-  .nav-item.dropdown:hover > .dropdown-menu,
-  .dropdown-submenu:hover > .dropdown-menu {
-    display: none;
-  }
-}
