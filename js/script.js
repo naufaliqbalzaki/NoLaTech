@@ -1,9 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Set the current year in the footer
+  const year = new Date().getFullYear();
+  document.getElementById("year").textContent = year;
+
   // WhatsApp Button - Scroll to Top Feature
   const whatsappBtn = document.querySelector('.btn.btn-success');
-  whatsappBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // Scroll Animation for sections
   const elements = document.querySelectorAll(".animate-up");
@@ -13,47 +19,53 @@ document.addEventListener("DOMContentLoaded", () => {
         entry.target.classList.add("show");
       }
     });
-  }, {
-    threshold: 0.1
-  });
+  }, { threshold: 0.1 });
   elements.forEach(el => observer.observe(el));
 
-  // Dropdown toggle for mobile
-  const dropdowns = document.querySelectorAll('.nav-item.dropdown');
-  dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('click', (e) => {
-      // Toggle visibility of dropdown menu on mobile
-      dropdown.classList.toggle('show');
-      e.stopPropagation(); // Prevent event from propagating
+  // Dropdown toggle for mobile (Layanan dropdown)
+  const dropdowns = document.querySelectorAll('.nav-item.dropdown > a');
+  dropdowns.forEach(dropdownToggle => {
+    dropdownToggle.addEventListener('click', (e) => {
+      const parent = dropdownToggle.parentElement;
+      parent.classList.toggle('show');
+
+      // Close other open dropdowns
+      document.querySelectorAll('.nav-item.dropdown').forEach(other => {
+        if (other !== parent) other.classList.remove('show');
+      });
+
+      e.preventDefault(); // Prevent link navigation
+      e.stopPropagation(); // Prevent bubbling
     });
   });
 
   // Submenu toggle for Pembuatan Website and Desain Grafis
-  const submenuItems = document.querySelectorAll('.dropdown-submenu > .dropdown-item');
-  submenuItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      const submenu = item.nextElementSibling; // Next sibling is the actual submenu
+  const submenuToggles = document.querySelectorAll('.dropdown-submenu > .dropdown-toggle');
+  submenuToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      const submenu = toggle.nextElementSibling;
       if (submenu && submenu.classList.contains('dropdown-menu')) {
-        submenu.classList.toggle('show'); // Toggle submenu visibility
-        e.stopPropagation(); // Prevent the click event from propagating
+        submenu.classList.toggle('show');
+
+        // Close other submenus
+        document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(otherSubmenu => {
+          if (otherSubmenu !== submenu) otherSubmenu.classList.remove('show');
+        });
+
+        e.preventDefault(); // Prevent link default
+        e.stopPropagation(); // Stop bubbling
       }
     });
   });
 
-  // Close dropdown if clicked outside
+  // Close dropdowns if clicked outside
   document.addEventListener('click', (e) => {
-    const isClickInsideDropdown = e.target.closest('.nav-item.dropdown');
-    const isClickInsideSubmenu = e.target.closest('.dropdown-submenu');
+    const isInsideDropdown = e.target.closest('.nav-item.dropdown');
+    const isInsideSubmenu = e.target.closest('.dropdown-submenu');
 
-    if (!isClickInsideDropdown && !isClickInsideSubmenu) {
-      // Hide all dropdowns and submenus if clicked outside
-      dropdowns.forEach(dropdown => dropdown.classList.remove('show'));
-      submenuItems.forEach(item => {
-        const submenu = item.nextElementSibling;
-        if (submenu && submenu.classList.contains('dropdown-menu')) {
-          submenu.classList.remove('show'); // Hide submenu when clicking outside
-        }
-      });
+    if (!isInsideDropdown && !isInsideSubmenu) {
+      document.querySelectorAll('.nav-item.dropdown').forEach(drop => drop.classList.remove('show'));
+      document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(sub => sub.classList.remove('show'));
     }
   });
 });
