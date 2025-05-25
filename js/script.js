@@ -204,4 +204,33 @@ document.addEventListener("DOMContentLoaded", () => {
       bootstrap.Modal.getInstance(testiModal).hide();
     });
   }
+
+  // ==== PORTFOLIO MODAL ====
+
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+  const modal = new bootstrap.Modal(document.getElementById("portfolioModal"));
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDescription = document.getElementById("modalDescription");
+  const carouselInner = document.querySelector("#modalCarousel .carousel-inner");
+
+  portfolioItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const title = item.getAttribute("data-title");
+      const description = item.getAttribute("data-description");
+      const images = item.getAttribute("data-images").split(",");
+
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      carouselInner.innerHTML = "";
+
+      images.forEach((imgSrc, index) => {
+        const carouselItem = document.createElement("div");
+        carouselItem.className = "carousel-item" + (index === 0 ? " active" : "");
+        carouselItem.innerHTML = `<img src="${imgSrc.trim()}" class="d-block w-100 rounded" alt="${title}">`;
+        carouselInner.appendChild(carouselItem);
+      });
+
+      modal.show();
+    });
+  });
 });
