@@ -51,6 +51,7 @@ body {
   margin-left: 3px;
   font-size: 1.5rem;
   transform: translateY(-5px);
+  color: #0a58ca !important; /* Override Bootstrap's .text-primary */
 }
 
 /* Nav links */
@@ -62,14 +63,12 @@ body {
   position: relative;
 }
 
-/* Hover & focus */
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
   color: #0d6efd;
   text-decoration: underline;
 }
 
-/* Active link with underline animation */
 .navbar-nav .nav-link.active {
   color: #0d6efd;
 }
@@ -96,12 +95,14 @@ body {
   display: inline-block;
 }
 
-.nav-item.dropdown:hover > .dropdown-menu {
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
-  visibility: visible;
-  opacity: 1;
-  transition: all 0.3s ease;
+@media (min-width: 992px) {
+  .nav-item.dropdown:hover > .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
 }
 
 /* Submenu */
@@ -122,16 +123,17 @@ body {
   transition: all 0.3s ease;
 }
 
-.dropdown-submenu:hover > .dropdown-menu {
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
+@media (min-width: 992px) {
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
 }
 
 .dropdown-submenu > .dropdown-toggle::after {
   content: none;
 }
 
-/* Submenu items */
 .dropdown-submenu > .dropdown-item {
   display: flex;
   align-items: center;
@@ -144,7 +146,6 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* Desktop adjustments */
 @media (min-width: 992px) {
   .dropdown-submenu > .dropdown-item {
     padding: 12px 20px;
@@ -177,16 +178,7 @@ body {
     position: static;
     box-shadow: none;
     width: 100%;
-  }
-
-  .dropdown-submenu .dropdown-menu {
-    position: relative;
-    left: 0;
-  }
-
-  .dropdown-menu {
     display: none;
-    position: relative;
   }
 
   .nav-item.dropdown.show > .dropdown-menu {
@@ -196,7 +188,9 @@ body {
     text-align: center;
   }
 
-  .dropdown-submenu > .dropdown-menu {
+  .dropdown-submenu .dropdown-menu {
+    position: relative;
+    left: 0;
     display: none;
   }
 
@@ -209,16 +203,11 @@ body {
   }
 
   .dropdown-submenu:hover > .dropdown-menu {
-    display: none;
+    display: none !important;
   }
 
   .navbar .navbar-brand img {
     margin-left: 0;
-  }
-
-  .nav-item.dropdown.show > .dropdown-menu {
-    display: block;
-    width: 100%;
   }
 }
 
@@ -792,11 +781,7 @@ section {
   background: radial-gradient(circle at top left, #e3f2fd 0%, #f9fbff 60%, #e8f0fe 100%);
   z-index: 1;
   transition: all 0.3s ease;
-  border-top: 1px solid #eaf4ff; /* opsional: pembatas halus */
-}
-
-#layanan::before {
-  display: none; /* Menghapus animasi conic-gradient */
+  border-top: 1px solid #eaf4ff;
 }
 
 #layanan::after {
@@ -813,34 +798,49 @@ section {
   font-size: 2.6rem;
   font-weight: 700;
   color: #10284e;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
   position: relative;
   z-index: 2;
 }
 
+#layanan p {
+  color: #495057;
+  font-size: 1.125rem;
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
 /* Service Card */
 .service-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-radius: 16px;
   background-color: #ffffff;
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: start;
   position: relative;
   height: 100%;
-  min-height: 360px;
   z-index: 2;
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
   background-color: #f8fbff;
+}
+
+/* Badge Populer */
+.service-card .badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  z-index: 3;
 }
 
 /* Icon Container */
@@ -858,52 +858,77 @@ section {
 }
 
 .service-card:hover .icon-container {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .icon-container i {
   font-size: 2rem;
   color: #0d6efd;
-  animation: floatIcon 2s ease-in-out infinite;
+}
+
+/* Float Icon Effect */
+.float-icon {
+  animation: floatIcon 3s ease-in-out infinite;
 }
 
 @keyframes floatIcon {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-6px); }
 }
 
-/* Judul Layanan */
+/* Title */
 .service-card h3 {
   font-size: 1.4rem;
   font-weight: 700;
   color: #333;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
-/* Deskripsi */
+/* Description */
 .service-card p {
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+/* List Service Items */
+.service-card ul {
+  padding-left: 0;
+  margin-bottom: 1.2rem;
+}
+
+.service-card li {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  color: #333;
+}
+
+.service-card li i {
+  margin-right: 8px;
+  flex-shrink: 0;
 }
 
 /* CTA Button */
 .service-card .btn {
-  border-radius: 25px;
   font-weight: 600;
+  font-size: 0.95rem;
   padding: 0.6rem 1.5rem;
+  border-radius: 50px;
   transition: all 0.3s ease;
 }
 
 .service-card .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(13, 110, 253, 0.2);
+  box-shadow: 0 8px 18px rgba(13, 110, 253, 0.15);
 }
 
-/* Layout kolom */
-#layanan .col-md-4 {
+/* Responsive Grid Fix */
+#layanan .col-lg-4,
+#layanan .col-md-6 {
   display: flex;
   align-items: stretch;
 }
@@ -920,7 +945,6 @@ section {
 
   .service-card {
     padding: 1.5rem;
-    min-height: auto;
   }
 
   .icon-container {
@@ -940,15 +964,24 @@ section {
     font-size: 0.95rem;
   }
 
+  .service-card li {
+    font-size: 0.88rem;
+  }
+
   .service-card .btn {
-    font-size: 0.95rem;
-    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.3rem;
+  }
+
+  .service-card .badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
   }
 }
 
 /* --- END LAYANAN SECTION --- */
 
-/* --- START BENEFIT SECTION (CLEAN VERSION) --- */
+/* --- START BENEFIT SECTION (ENHANCED FINAL) --- */
 
 #benefit {
   position: relative;
@@ -956,10 +989,6 @@ section {
   background: radial-gradient(circle at top left, #e3f2fd 0%, #f9fbff 60%, #ffffff 100%);
   overflow: hidden;
   z-index: 1;
-}
-
-#benefit::before {
-  display: none; /* Dihilangkan sepenuhnya animasi gradien */
 }
 
 #benefit::after {
@@ -976,11 +1005,17 @@ section {
   font-size: 2.6rem;
   font-weight: 700;
   color: #10284e;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
   position: relative;
-  z-index: 2;
+}
+
+#benefit p {
+  color: #495057;
+  font-size: 1.125rem;
+  max-width: 720px;
+  margin: 0 auto 50px;
 }
 
 /* Benefit Card */
@@ -993,16 +1028,26 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   height: 100%;
   min-height: 360px;
+  position: relative;
   z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
 }
+
+.benefit-card:nth-child(2) { animation-delay: 0.1s; }
+.benefit-card:nth-child(3) { animation-delay: 0.2s; }
+.benefit-card:nth-child(4) { animation-delay: 0.3s; }
+.benefit-card:nth-child(5) { animation-delay: 0.4s; }
+.benefit-card:nth-child(6) { animation-delay: 0.5s; }
 
 .benefit-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  background-color: #eaf4ff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  background-color: #f0f8ff;
 }
 
-/* Ikon melayang dalam lingkaran */
+/* Icon Circle */
 .icon-circle {
   width: 80px;
   height: 80px;
@@ -1019,7 +1064,7 @@ section {
 .icon-circle i {
   font-size: 2rem;
   color: #0d6efd;
-  animation: floatIcon 2s ease-in-out infinite;
+  animation: floatIcon 2.5s ease-in-out infinite;
 }
 
 .benefit-card:hover .icon-circle {
@@ -1027,14 +1072,9 @@ section {
   background-color: rgba(13, 110, 253, 0.12);
 }
 
-@keyframes floatIcon {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* Heading & Description */
+/* Heading & Paragraph */
 .benefit-card h3 {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #333;
   margin-bottom: 0.75rem;
@@ -1042,11 +1082,9 @@ section {
 }
 
 .benefit-card p {
-  font-size: 1rem;
+  font-size: 0.97rem;
   color: #555;
   line-height: 1.6;
-  margin-top: 0.5rem;
-  flex-grow: 1;
   transition: color 0.3s ease;
 }
 
@@ -1058,8 +1096,26 @@ section {
   color: #333;
 }
 
-/* Layout */
-#benefit .col-md-4 {
+/* Animations */
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grid Equal Height Fix */
+#benefit .col-lg-4,
+#benefit .col-md-6 {
   display: flex;
   align-items: stretch;
 }
@@ -1072,6 +1128,11 @@ section {
 
   #benefit h2 {
     font-size: 2rem;
+  }
+
+  #benefit p {
+    font-size: 1rem;
+    margin-bottom: 40px;
   }
 
   .benefit-card {

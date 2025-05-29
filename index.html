@@ -25,48 +25,33 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#hero">
-      <img src="assets/images/NL.png" alt="Logo NOLATECH" height="75" class="me-2">
+      <img src="assets/images/LOGOHD.png" alt="Logo NOLATECH" height="75" class="me-2" />
       <span class="text-primary fw-bold">NOLATECH</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+    <!-- Toggle handled via JS -->
+    <button class="navbar-toggler" type="button" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link" href="#hero">Home</a>
         </li>
+
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="layananDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="layananDropdown" role="button" aria-expanded="false">
             Layanan
           </a>
           <ul class="dropdown-menu shadow" aria-labelledby="layananDropdown">
-            <li class="dropdown-submenu position-relative">
-              <a class="dropdown-item dropdown-toggle" href="#">
-                Pembuatan Website <i class="fas fa-chevron-right"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#company-profile">Company Profile</a></li>
-                <li><a class="dropdown-item" href="#landing-page">Landing Page</a></li>
-                <li><a class="dropdown-item" href="#portofolio">Portofolio</a></li>
-              </ul>
-            </li>  
-            <li class="dropdown-submenu position-relative">
-              <a class="dropdown-item dropdown-toggle" href="#">
-                Desain Grafis <i class="fas fa-chevron-right"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#desain-logo">Desain Logo</a></li>
-                <li><a class="dropdown-item" href="#desain-banner">Desain Banner</a></li>
-                <li><a class="dropdown-item" href="#desain-poster">Desain Poster</a></li>
-                <li><a class="dropdown-item" href="#desain-sertifikat">Desain Sertifikat</a></li>
-                <li><a class="dropdown-item" href="#desain-feed">Desain Feed IG</a></li>
-              </ul>
-            </li>            
+            <li><a class="dropdown-item" href="#layanan">Pembuatan Website</a></li>
+            <li><a class="dropdown-item" href="#layanan">Desain Grafis</a></li>
+            <li><a class="dropdown-item" href="#layanan">Penunjang Akademik</a></li>
           </ul>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="#portofolio">Portofolio</a>
         </li>
@@ -86,19 +71,19 @@
 <header class="hero text-white d-flex align-items-center justify-content-between position-relative overflow-hidden" id="hero" role="banner">
   <div class="hero-content">
     <h1 class="hero-title animate-up" style="animation-delay: 0.2s;">
-      Kreativitas Digital untuk <span class="text-primary">Brand</span> Anda
+      Kreativitas Digital untuk <span class="text-highlight">Brand</span> Anda
     </h1>
 
-    <!-- Logo muncul di tengah hanya di mobile -->
+    <!-- Logo hanya muncul di tengah pada mobile -->
     <div class="hero-logo-mobile animate-up" style="animation-delay: 0.3s;">
-      <img src="assets/images/NL.png" alt="Logo NOLATECH - Jasa Web & Desain" loading="lazy" class="hero-logo">
+      <img src="assets/images/LOGOHD.png" alt="Logo NOLATECH - Jasa Web & Desain" loading="lazy" class="hero-logo">
     </div>
 
-    <p class="lead animate-up" style="animation-delay: 0.4s; text-align: justify;">
+    <p class="lead animate-up" style="animation-delay: 0.4s;">
       Tingkatkan visibilitas brand Anda dengan solusi digital yang kreatif dan efektif untuk memperkuat identitas, membangun kepercayaan, serta meningkatkan daya tarik visual di setiap platform digital dengan pendekatan strategis dan profesional.
     </p>
 
-    <a href="#paket" class="btn btn-light btn-lg mt-3 animate-up hero-btn" style="animation-delay: 0.6s;" aria-label="Hubungi kami melalui formulir kontak">
+    <a href="#paket" class="btn btn-light rounded-pill px-4 fw-semibold mt-3 animate-up hero-btn" style="animation-delay: 0.6s;" aria-label="Hubungi kami melalui formulir kontak">
       GUNAKAN JASA
     </a>
 
@@ -106,14 +91,14 @@
       <div class="stat-item animate-up" style="animation-delay: 0.8s;" aria-label="Jumlah Customer">
         <i class="stat-icon bi bi-people-fill"></i>
         <div class="stat-text">
-          <h3 class="count" data-count="4">0</h3>
+          <h3 class="count" data-count="5">0</h3>
           <p>Jumlah Customer</p>
         </div>
       </div>
       <div class="stat-item animate-up" style="animation-delay: 1s;" aria-label="Jumlah Proyek Berhasil">
         <i class="stat-icon bi bi-check2-circle"></i>
         <div class="stat-text">
-          <h3 class="count" data-count="4">0</h3>
+          <h3 class="count" data-count="5">0</h3>
           <p>Proyek Berhasil</p>
         </div>
       </div>
@@ -122,10 +107,10 @@
 
   <!-- Logo tetap di kanan untuk desktop -->
   <div class="hero-logo-desktop animate-up" style="animation-delay: 0.5s;">
-    <img src="assets/images/NL.png" alt="Logo NOLATECH - Jasa Web & Desain" loading="lazy" class="hero-logo">
+    <img src="assets/images/LOGOHD.png" alt="Logo NOLATECH - Jasa Web & Desain" loading="lazy" class="hero-logo">
   </div>
 
-  <!-- Decorative Fade Transition -->
+  <!-- Decorative Fade Separator -->
   <div class="hero-fade-separator"></div>
 </header>
 <!-- End Hero Section -->
@@ -133,45 +118,73 @@
 <!-- Start Layanan -->
 <section id="layanan" class="bg-light text-center animate-up" aria-labelledby="judul-layanan">
   <div class="container">
-    <h2 class="mb-5 text-uppercase fw-bold" id="judul-layanan">Layanan Kami</h2>
+    <h2 class="mb-3 text-uppercase fw-bold" id="judul-layanan">Layanan Kami</h2>
+    <p class="mb-5 text-muted fs-5">
+      Pilih solusi terbaik sesuai kebutuhan digital dan akademik Anda. Setiap layanan dirancang untuk memberikan hasil profesional dan efisien.
+    </p>
     <div class="row">
-      
+
       <!-- Layanan 1: Pembuatan Website -->
-      <div class="col-md-4 col-12 mb-4">
-        <div class="card p-4 shadow-sm border-0 service-card h-100" tabindex="0">
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="card service-card h-100 p-4 shadow-sm border-0 position-relative text-start">
+          <span class="badge bg-primary position-absolute top-0 start-50 translate-middle mt-n3 px-3 py-1 rounded-pill shadow-sm">Populer</span>
           <div class="icon-container mx-auto mb-3">
-            <i class="bi bi-laptop fs-1 text-primary" aria-hidden="true"></i>
+            <i class="bi bi-laptop fs-1 text-primary float-icon" aria-hidden="true"></i>
           </div>
-          <h3 class="h5 fw-bold mt-3">Pembuatan Website</h3>
-          <p class="mt-2">
-            Website profesional dan responsif untuk kebutuhan bisnis maupun personal, seperti company profile, toko online, atau landing page.
+          <h3 class="h5 fw-bold text-center">Pembuatan Website</h3>
+          <p class="text-muted small text-center">
+            Solusi web responsif untuk personal, bisnis, atau organisasi.
           </p>
+          <ul class="list-unstyled mt-3 small">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Company Profile & Landing Page</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Toko Online & Dashboard Admin</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Optimasi kecepatan & mobile-friendly</li>
+          </ul>
+          <div class="text-center mt-3">
+            <a href="#formulir" class="btn btn-outline-primary rounded-pill px-4 fw-semibold">Pesan Sekarang</a>
+          </div>
         </div>
       </div>
 
       <!-- Layanan 2: Desain Grafis -->
-      <div class="col-md-4 col-12 mb-4">
-        <div class="card p-4 shadow-sm border-0 service-card h-100" tabindex="0">
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="card service-card h-100 p-4 shadow-sm border-0 text-start">
           <div class="icon-container mx-auto mb-3">
-            <i class="bi bi-brush fs-1 text-primary" aria-hidden="true"></i>
+            <i class="bi bi-brush fs-1 text-primary float-icon" aria-hidden="true"></i>
           </div>
-          <h3 class="h5 fw-bold mt-3">Desain Grafis</h3>
-          <p class="mt-2">
-            Mulai dari desain logo, banner, hingga kebutuhan branding media sosial — semua disesuaikan dengan identitas visual bisnis Anda.
+          <h3 class="h5 fw-bold text-center">Desain Grafis</h3>
+          <p class="text-muted small text-center">
+            Visual menarik untuk media presentasi dan promosi digital.
           </p>
+          <ul class="list-unstyled mt-3 small">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Desain PPT Presentasi Profesional</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Poster & Infografis via Canva</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Branding Sosial Media</li>
+          </ul>
+          <div class="text-center mt-3">
+            <a href="#kontak" class="btn btn-outline-primary rounded-pill px-4 fw-semibold">Lihat Contoh</a>
+          </div>
         </div>
       </div>
 
-      <!-- Layanan 3: Analisis Data -->
-      <div class="col-md-4 col-12 mb-4">
-        <div class="card p-4 shadow-sm border-0 service-card h-100" tabindex="0">
+      <!-- Layanan 3: Penunjang Akademik -->
+      <div class="col-lg-4 col-md-6 col-12 mb-4">
+        <div class="card service-card h-100 p-4 shadow-sm border-0 text-start">
           <div class="icon-container mx-auto mb-3">
-            <i class="bi bi-bar-chart fs-1 text-primary" aria-hidden="true"></i>
+            <i class="bi bi-mortarboard fs-1 text-primary float-icon" aria-hidden="true"></i>
           </div>
-          <h3 class="h5 fw-bold mt-3">Analisis Data</h3>
-          <p class="mt-2">
-            Data bisnis Anda dianalisis menggunakan tools statistik untuk memberikan wawasan yang berguna dalam pengambilan keputusan.
+          <h3 class="h5 fw-bold text-center">Penunjang Akademik</h3>
+          <p class="text-muted small text-center">
+            Bantu urusan akademik Anda jadi lebih rapi, cepat, dan siap kirim.
           </p>
+          <ul class="list-unstyled mt-3 small">
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Penulisan Makalah & Review Jurnal</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Editing Video & Desain Presentasi</li>
+            <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Plagiarisme, Formatting & Terjemahan</li>
+          </ul>
+          <div class="text-center mt-3">
+            <a href="#formulir" class="btn btn-outline-primary rounded-pill px-4 fw-semibold">Konsultasi Gratis</a>
+          </div>
         </div>
       </div>
 
@@ -181,46 +194,83 @@
 <!-- End Layanan Section -->
 
 <!-- Start Section Benefit -->
-<section id="benefit" class="text-center py-5" aria-labelledby="judul-benefit">
+<section id="benefit" class="text-center py-5 position-relative overflow-hidden" aria-labelledby="judul-benefit">
   <div class="container">
-    <h2 class="mb-5 text-uppercase fw-bold" id="judul-benefit">Kenapa Memilih Kami?</h2>
-    <div class="row justify-content-center">
-      
-      <!-- Benefit 1 -->
-      <div class="col-md-4 col-sm-6 mb-4">
-        <div class="benefit-card p-4 shadow-sm border-0 h-100" tabindex="0">
+    <h2 class="mb-4 text-uppercase fw-bold" id="judul-benefit">Kenapa Memilih Kami?</h2>
+    <p class="text-muted mb-5 fs-5">
+      Lebih dari sekadar layanan, kami hadir sebagai partner terpercaya untuk memastikan setiap kebutuhan digital & akademik Anda terwujud dengan hasil maksimal.
+    </p>
+    <div class="row g-4 justify-content-center">
+
+      <!-- Benefit Item -->
+      <div class="col-lg-4 col-md-6">
+        <div class="benefit-card p-4 shadow-sm border-0 h-100">
           <div class="icon-circle mx-auto mb-3">
             <i class="fas fa-star" aria-hidden="true"></i>
           </div>
           <h3 class="h5 fw-bold mt-3">Komitmen Terhadap Kualitas</h3>
-          <p class="mt-2">
-            Kami selalu mengutamakan kualitas dalam setiap proyek yang kami kerjakan, memastikan setiap layanan memenuhi standar tertinggi.
+          <p class="text-muted small mt-2">
+            Kami menjunjung standar tinggi dalam setiap layanan demi hasil yang profesional dan memuaskan.
           </p>
         </div>
       </div>
 
-      <!-- Benefit 2 -->
-      <div class="col-md-4 col-sm-6 mb-4">
-        <div class="benefit-card p-4 shadow-sm border-0 h-100" tabindex="0">
+      <div class="col-lg-4 col-md-6">
+        <div class="benefit-card p-4 shadow-sm border-0 h-100">
           <div class="icon-circle mx-auto mb-3">
             <i class="fas fa-wallet" aria-hidden="true"></i>
           </div>
           <h3 class="h5 fw-bold mt-3">Harga yang Fleksibel</h3>
-          <p class="mt-2">
-            Jangan khawatir soal biaya. Kami menawarkan harga yang dapat disesuaikan dengan anggaran Anda, plus opsi pembayaran 25-30% di awal jika anggaran Anda terbatas.
+          <p class="text-muted small mt-2">
+            Penawaran harga transparan & dapat disesuaikan dengan budget Anda. Tersedia opsi cicilan ringan.
           </p>
         </div>
       </div>
 
-      <!-- Benefit 3 -->
-      <div class="col-md-4 col-sm-6 mb-4">
-        <div class="benefit-card p-4 shadow-sm border-0 h-100" tabindex="0">
+      <div class="col-lg-4 col-md-6">
+        <div class="benefit-card p-4 shadow-sm border-0 h-100">
           <div class="icon-circle mx-auto mb-3">
             <i class="fas fa-comments" aria-hidden="true"></i>
           </div>
           <h3 class="h5 fw-bold mt-3">Gratis Konsultasi</h3>
-          <p class="mt-2">
-            Kami menyediakan sesi konsultasi gratis untuk membantu Anda merencanakan dan memulai proyek sesuai dengan kebutuhan Anda.
+          <p class="text-muted small mt-2">
+            Tidak yakin harus mulai dari mana? Kami siap bantu brainstorming dan memberi arahan tanpa biaya.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="benefit-card p-4 shadow-sm border-0 h-100">
+          <div class="icon-circle mx-auto mb-3">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+          </div>
+          <h3 class="h5 fw-bold mt-3">Responsif & Tepat Waktu</h3>
+          <p class="text-muted small mt-2">
+            Respons cepat dan deadline selalu kami penuhi. Karena waktu Anda sangat berharga.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="benefit-card p-4 shadow-sm border-0 h-100">
+          <div class="icon-circle mx-auto mb-3">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+          </div>
+          <h3 class="h5 fw-bold mt-3">Privasi & Keamanan</h3>
+          <p class="text-muted small mt-2">
+            Kami menjaga kerahasiaan dokumen dan komunikasi Anda dengan penuh tanggung jawab.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="benefit-card p-4 shadow-sm border-0 h-100">
+          <div class="icon-circle mx-auto mb-3">
+            <i class="fas fa-thumbs-up" aria-hidden="true"></i>
+          </div>
+          <h3 class="h5 fw-bold mt-3">Revisi Hingga Puas</h3>
+          <p class="text-muted small mt-2">
+            Setiap proyek kami jamin bisa direvisi sesuai batas revisi paket, hingga sesuai harapan Anda.
           </p>
         </div>
       </div>

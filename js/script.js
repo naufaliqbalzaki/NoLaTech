@@ -8,12 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // Set current year in footer
-  const year = new Date().getFullYear();
+  // Set current year
   const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = year;
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // WhatsApp Button scroll-to-top
+  // WhatsApp scroll-top
   const whatsappBtn = document.querySelector(".btn-whatsapp");
   if (whatsappBtn) {
     whatsappBtn.addEventListener("click", () => {
@@ -21,77 +20,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Animate-up logic with dynamic delay
+  // Animate-up
   const animatedElements = document.querySelectorAll(".animate-up");
-  animatedElements.forEach((el, index) => {
-    el.style.animationDelay = `${0.2 + index * 0.15}s`;
+  animatedElements.forEach((el, i) => {
+    el.style.animationDelay = `${0.2 + i * 0.15}s`;
   });
-
-  const animationObserver = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
+  const animationObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
   animatedElements.forEach((el) => animationObserver.observe(el));
 
-  // Count-up for .count elements
+  // Counter
   const counters = document.querySelectorAll(".count");
-  const counterObserver = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseInt(el.dataset.count, 10);
-          const duration = 1500;
-          const start = performance.now();
+  const counterObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const duration = 1500;
+        const start = performance.now();
+        const easeOut = (t) => 1 - Math.pow(1 - t, 3);
 
-          function easeOut(t) {
-            return 1 - Math.pow(1 - t, 3);
+        const animate = (time) => {
+          const progress = (time - start) / duration;
+          if (progress < 1) {
+            el.textContent = Math.ceil(easeOut(progress) * target);
+            requestAnimationFrame(animate);
+          } else {
+            el.textContent = target;
+            el.classList.add("finished");
+            el.style.animation = "bounce 0.4s ease";
           }
-
-          function animate(time) {
-            let progress = (time - start) / duration;
-            if (progress < 1) {
-              el.textContent = Math.ceil(easeOut(progress) * target);
-              requestAnimationFrame(animate);
-            } else {
-              el.textContent = target;
-              el.classList.add("finished");
-              el.style.animation = "bounce 0.4s ease";
-            }
-          }
-
-          requestAnimationFrame(animate);
-          obs.unobserve(el);
-        }
-      });
-    },
-    { threshold: 1 }
-  );
-
+        };
+        requestAnimationFrame(animate);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 1 });
   counters.forEach((el) => counterObserver.observe(el));
 
-  // Navbar shrink on scroll
+  // Navbar shrink
   const navbar = document.querySelector(".navbar");
-  window.addEventListener(
-    "scroll",
-    debounce(() => {
-      if (navbar) navbar.classList.toggle("shrink", window.scrollY > 50);
-    }, 50)
-  );
+  window.addEventListener("scroll", debounce(() => {
+    if (navbar) navbar.classList.toggle("shrink", window.scrollY > 50);
+  }, 50));
 
-  // Scrollspy active class toggle
+  // Scrollspy
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link[href^='#']");
-
-  const handleScrollSpy = () => {
+  window.addEventListener("scroll", debounce(() => {
     const scrollPos = window.scrollY + 150;
     sections.forEach((section) => {
       const id = section.id;
@@ -105,44 +87,87 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
-  };
-  window.addEventListener("scroll", debounce(handleScrollSpy, 75));
+  }, 75));
 
-  // Mobile Dropdown + Submenu toggles
-  const toggleMobileDropdowns = () => {
-    const dropdowns = document.querySelectorAll(".nav-item.dropdown > a");
-    dropdowns.forEach((toggle) => {
-      toggle.addEventListener("click", (e) => {
-        if (window.innerWidth <= 991) {
-          const parent = toggle.parentElement;
-          parent.classList.toggle("show");
-          document.querySelectorAll(".nav-item.dropdown").forEach((other) => {
-            if (other !== parent) other.classList.remove("show");
-          });
+  const navbarCollapse = document.getElementById("navbarNav");
+
+  // Manual toggle for navbar-toggler
+  const navbarToggler = document.querySelector(".navbar-toggler");
+  if (navbarToggler && navbarCollapse) {
+    navbarToggler.addEventListener("click", () => {
+      if (navbarCollapse.classList.contains("show")) {
+        bootstrap.Collapse.getInstance(navbarCollapse)?.hide();
+      } else {
+        new bootstrap.Collapse(navbarCollapse, { toggle: true });
+      }
+    });
+  }
+
+  // Toggle dropdown (mobile)
+  document.querySelectorAll(".nav-item.dropdown > a").forEach((toggle) => {
+    toggle.addEventListener("click", (e) => {
+      if (window.innerWidth <= 991) {
+        const parent = toggle.parentElement;
+        const isOpen = parent.classList.contains("show");
+
+        // Tutup semua dropdown lainnya
+        document.querySelectorAll(".nav-item.dropdown").forEach((item) => {
+          item.classList.remove("show");
+        });
+
+        // Toggle aktif
+        if (!isOpen) {
+          parent.classList.add("show");
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    });
+  });
+
+  // Toggle submenu (mobile)
+  document.querySelectorAll(".dropdown-submenu > .dropdown-toggle").forEach((toggle) => {
+    toggle.addEventListener("click", (e) => {
+      if (window.innerWidth <= 991) {
+        const submenu = toggle.nextElementSibling;
+        const isOpen = submenu?.classList.contains("show");
+
+        // Tutup semua submenu lainnya
+        document.querySelectorAll(".dropdown-submenu .dropdown-menu").forEach((menu) => {
+          menu.classList.remove("show");
+        });
+
+        // Toggle aktif
+        if (submenu && !isOpen) {
+          submenu.classList.add("show");
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    });
+  });
+
+  // Klik link biasa → tutup navbar collapse
+  document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const isDropdownToggle = link.classList.contains("dropdown-toggle");
+      const isInsideSubmenu = link.closest(".dropdown-submenu");
+
+      if (window.innerWidth <= 991 && navbarCollapse.classList.contains("show")) {
+        if (!isDropdownToggle && !isInsideSubmenu) {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          if (bsCollapse) bsCollapse.hide();
+        } else {
           e.preventDefault();
           e.stopPropagation();
         }
-      });
+      }
     });
+  });
 
-    const submenus = document.querySelectorAll(".dropdown-submenu > .dropdown-toggle");
-    submenus.forEach((toggle) => {
-      toggle.addEventListener("click", (e) => {
-        if (window.innerWidth <= 991) {
-          const submenu = toggle.nextElementSibling;
-          submenu?.classList.toggle("show");
-          document.querySelectorAll(".dropdown-submenu .dropdown-menu").forEach((other) => {
-            if (other !== submenu) other.classList.remove("show");
-          });
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      });
-    });
-  };
-  toggleMobileDropdowns();
-
-  // Click outside to close dropdowns
+  // Click outside to close
   document.addEventListener("click", (e) => {
     const insideDropdown = e.target.closest(".nav-item.dropdown, .dropdown-submenu");
     if (!insideDropdown) {
@@ -154,14 +179,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Reset dropdowns on resize
   window.addEventListener("resize", () => {
     if (window.innerWidth > 991) {
-      document.querySelectorAll(".nav-item.dropdown, .dropdown-submenu .dropdown-menu").forEach((el) =>
-        el.classList.remove("show")
-      );
+      document.querySelectorAll(".nav-item.dropdown, .dropdown-submenu .dropdown-menu").forEach((el) => {
+        el.classList.remove("show");
+      });
     }
   });
 
-  // ==== TESTIMONI FORM ====
-
+  // === TESTIMONI FORM ===
   const openFormBtn = document.getElementById("openTestiForm");
   const testiModal = document.getElementById("testiModal");
   const testiForm = document.getElementById("testiForm");
@@ -189,24 +213,17 @@ document.addEventListener("DOMContentLoaded", () => {
           </footer>
         </blockquote>
       `;
-
-      // Tambah ke carousel
       testiCarouselInner.appendChild(newItem);
 
-      // Jika sebelumnya hanya ada 1 item aktif, nonaktifkan dan set baru jadi aktif
       const items = testiCarouselInner.querySelectorAll(".carousel-item");
-      if (items.length === 1) {
-        newItem.classList.add("active");
-      }
+      if (items.length === 1) newItem.classList.add("active");
 
-      // Reset dan tutup modal
       testiForm.reset();
       bootstrap.Modal.getInstance(testiModal).hide();
     });
   }
 
-  // ==== PORTFOLIO MODAL ====
-
+  // === PORTFOLIO MODAL ===
   const portfolioItems = document.querySelectorAll(".portfolio-item");
   const modal = new bootstrap.Modal(document.getElementById("portfolioModal"));
   const modalTitle = document.getElementById("modalTitle");
@@ -223,10 +240,10 @@ document.addEventListener("DOMContentLoaded", () => {
       modalDescription.textContent = description;
       carouselInner.innerHTML = "";
 
-      images.forEach((imgSrc, index) => {
+      images.forEach((src, i) => {
         const carouselItem = document.createElement("div");
-        carouselItem.className = "carousel-item" + (index === 0 ? " active" : "");
-        carouselItem.innerHTML = `<img src="${imgSrc.trim()}" class="d-block w-100 rounded" alt="${title}">`;
+        carouselItem.className = "carousel-item" + (i === 0 ? " active" : "");
+        carouselItem.innerHTML = `<img src="${src.trim()}" class="d-block w-100 rounded" alt="${title}">`;
         carouselInner.appendChild(carouselItem);
       });
 
