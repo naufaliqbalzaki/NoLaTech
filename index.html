@@ -46,9 +46,9 @@
             Layanan
           </a>
           <ul class="dropdown-menu shadow" aria-labelledby="layananDropdown">
-            <li><a class="dropdown-item" href="#layanan">Pembuatan Website</a></li>
-            <li><a class="dropdown-item" href="#layanan">Desain Grafis</a></li>
-            <li><a class="dropdown-item" href="#layanan">Penunjang Akademik</a></li>
+            <li><a class="dropdown-item" href="#paket">Pembuatan Website</a></li>
+            <li><a class="dropdown-item" href="#paket-desain">Desain Grafis</a></li>
+            <li><a class="dropdown-item" href="#akademik">Penunjang Akademik</a></li>
           </ul>
         </li>
 
@@ -129,7 +129,7 @@
         <div class="card service-card h-100 p-4 shadow-sm border-0 position-relative text-start">
           <span class="badge bg-primary position-absolute top-0 start-50 translate-middle mt-n3 px-3 py-1 rounded-pill shadow-sm">Populer</span>
           <div class="icon-container mx-auto mb-3">
-            <i class="bi bi-laptop fs-1 text-primary float-icon" aria-hidden="true"></i>
+            <i class="bi bi-laptop fs-1 text-primary float-icon" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Pengembangan website dengan fitur responsif dan optimasi kecepatan"></i>
           </div>
           <h3 class="h5 fw-bold text-center">Pembuatan Website</h3>
           <p class="text-muted small text-center">
@@ -150,7 +150,7 @@
       <div class="col-lg-4 col-md-6 col-12 mb-4">
         <div class="card service-card h-100 p-4 shadow-sm border-0 text-start">
           <div class="icon-container mx-auto mb-3">
-            <i class="bi bi-brush fs-1 text-primary float-icon" aria-hidden="true"></i>
+            <i class="bi bi-brush fs-1 text-primary float-icon" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Desain grafis untuk kebutuhan presentasi dan media promosi"></i>
           </div>
           <h3 class="h5 fw-bold text-center">Desain Grafis</h3>
           <p class="text-muted small text-center">
@@ -171,7 +171,7 @@
       <div class="col-lg-4 col-md-6 col-12 mb-4">
         <div class="card service-card h-100 p-4 shadow-sm border-0 text-start">
           <div class="icon-container mx-auto mb-3">
-            <i class="bi bi-mortarboard fs-1 text-primary float-icon" aria-hidden="true"></i>
+            <i class="bi bi-mortarboard fs-1 text-primary float-icon" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Dukungan akademik untuk penulisan, presentasi, dan editing"></i>
           </div>
           <h3 class="h5 fw-bold text-center">Penunjang Akademik</h3>
           <p class="text-muted small text-center">
@@ -280,75 +280,93 @@
 </section>
 <!-- End Benefit Section -->
 
-<!-- Start Pricing Plans -->
-<section id="paket" class="py-5 bg-light text-center animate-up">
+<!-- Start Pricing Plans Section -->
+<section id="paket" class="py-5 bg-white position-relative overflow-hidden">
   <div class="container">
-    <h2 class="mb-3 text-uppercase fw-bold">Paket Pembuatan Website</h2>
-    <p class="mb-5 text-muted fs-5">Pilih paket terbaik untuk membangun citra digital Anda secara profesional dan terpercaya.</p>
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-uppercase">Pilih Paket Website Anda</h2>
+      <p class="text-muted fs-5">Solusi cepat, profesional, dan terjangkau untuk kebutuhan digital Anda</p>
+    </div>
 
-    <div class="row g-5 justify-content-center">
+    <div class="row justify-content-center g-4">
 
-      <!-- Paket UMKM -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card pricing-card border-0 h-100 shadow-sm p-4 transition hover-scale umkm">
-          <div class="card-header bg-white border-0 px-0 mb-3">
-            <h4 class="text-uppercase fw-bold text-primary">Paket UMKM</h4>
-            <p class="text-muted small mb-0">Untuk pemula, toko kecil, & portofolio</p>
-          </div>
-          <div class="card-body px-0">
-            <h3 class="display-6 fw-bold text-primary mb-4">Rp 799.000</h3>
-            <ul class="list-unstyled text-start small mb-4 pb-2" role="list">
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-primary"></i> Domain .com & Hosting 1GB</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-primary"></i> 8 Halaman Responsif</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-primary"></i> Email Bisnis + WhatsApp</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-primary"></i> 2x Revisi</li>
-              <li><i class="bi bi-check-circle-fill me-2 text-primary"></i> Panduan Video & Garansi</li>
+      <!-- Basic -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card pricing-card border-0 shadow-sm rounded-4 h-100 p-4">
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="icon-circle bg-light p-3 rounded-circle mb-3">
+              <i class="bi bi-laptop fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-uppercase">Basic</h5>
+            <p class="text-muted mb-2">Untuk kebutuhan sederhana dan cepat</p>
+            <div class="bg-light rounded-pill px-3 py-2 mb-3">
+              <span class="fw-bold text-primary">Rp200.000 – 700.000</span>
+            </div>
+            <ul class="list-unstyled text-start w-100 mt-3 flex-grow-1">
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>1 Halaman landing</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Desain responsive</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Form WhatsApp</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Domain .my.id</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Hosting 500MB</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>SEO dasar</li>
+              <li><i class="bi bi-clock me-2"></i>±2–3 hari</li>
             </ul>
-            <a href="#cta" class="btn btn-outline-primary w-100 rounded-pill fw-semibold" aria-label="Pesan Paket UMKM">Mulai Sekarang</a>
+            <a href="formulir.html" class="btn btn-outline-primary rounded-pill w-100 fw-semibold mt-3">Pilih Paket</a>
           </div>
         </div>
       </div>
 
-      <!-- Paket Bisnis -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card pricing-card featured border-0 shadow-lg h-100 p-4 position-relative transition hover-scale bisnis">
-          <span class="badge position-absolute top-0 start-50 translate-middle-x mt-n3 px-3 py-2 rounded-pill shadow-sm">Paling Populer</span>
-          <div class="card-header bg-white border-0 px-0 mb-3">
-            <h4 class="text-uppercase fw-bold text-info">Paket Bisnis</h4>
-            <p class="text-muted small mb-0">Ideal untuk UKM & usaha bertumbuh</p>
-          </div>
-          <div class="card-body px-0">
-            <h3 class="display-6 fw-bold text-info mb-4">Rp 1.299.000</h3>
-            <ul class="list-unstyled text-start small mb-4 pb-2" role="list">
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-info"></i> Domain + SSL + Hosting 10GB</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-info"></i> Hingga 20 Halaman Website</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-info"></i> WhatsApp, Maps, Admin Panel</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-info"></i> 10 Email Bisnis</li>
-              <li><i class="bi bi-check-circle-fill me-2 text-info"></i> 3x Revisi + Konsultasi</li>
+      <!-- Standar -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card pricing-card featured border-0 shadow-lg rounded-4 h-100 p-4 position-relative">
+          <div class="badge bg-primary position-absolute top-0 start-50 translate-middle-x mt-n3 px-4 py-2 rounded-pill text-white fw-semibold">Paling Diminati</div>
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="icon-circle bg-light p-3 rounded-circle mb-3">
+              <i class="bi bi-star-fill fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-uppercase">Standar</h5>
+            <p class="text-muted mb-2">Pas untuk bisnis dan personal branding</p>
+            <div class="bg-light rounded-pill px-3 py-2 mb-3">
+              <span class="fw-bold text-primary">Rp1.000.000 – 3.000.000</span>
+            </div>
+            <ul class="list-unstyled text-start w-100 mt-3 flex-grow-1">
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Hingga 5 Halaman</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Desain custom</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Form WA + Email</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Domain .com gratis</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Hosting 1GB + SSL</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Integrasi Maps & Analytics</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>SEO & kecepatan optimal</li>
+              <li><i class="bi bi-clock me-2"></i>±5 hari</li>
             </ul>
-            <a href="#cta" class="btn btn-info text-white w-100 rounded-pill fw-semibold" aria-label="Ambil Paket Bisnis">Mulai Sekarang</a>
+            <a href="formulir.html" class="btn btn-primary rounded-pill w-100 fw-semibold mt-3">Pilih Paket</a>
           </div>
         </div>
       </div>
 
-      <!-- Paket Corporate -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card pricing-card border-0 h-100 shadow-sm p-4 transition hover-scale corporate">
-          <div class="card-header bg-white border-0 px-0 mb-3">
-            <h4 class="text-uppercase fw-bold text-primary">Paket Corporate</h4>
-            <p class="text-muted small mb-0">Untuk instansi, perusahaan besar, dan proyek skala nasional</p>
-          </div>
-          <div class="card-body px-0">
-            <h3 class="display-6 fw-bold text-primary mb-4">Rp 2.599.000</h3>
-            <ul class="list-unstyled text-start small mb-4 pb-2" role="list">
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-primary"></i> Domain Premium (.com / .id / .co.id)</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-primary"></i> Hosting Besar 40GB SSD</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-primary"></i> >20 Halaman Dinamis + CMS Admin</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-primary"></i> 30+ Email Profesional</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill me-2 text-primary"></i> SEO, Analytics, Pixel Integration</li>
-              <li><i class="bi bi-check-circle-fill me-2 text-primary"></i> Garansi & Konsultasi Seumur Hidup</li>
+      <!-- Premium -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card pricing-card border-0 shadow-sm rounded-4 h-100 p-4">
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="icon-circle bg-light p-3 rounded-circle mb-3">
+              <i class="bi bi-gem fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-uppercase">Premium</h5>
+            <p class="text-muted mb-2">Untuk kebutuhan kompleks & fleksibel</p>
+            <div class="bg-light rounded-pill px-3 py-2 mb-3">
+              <span class="fw-bold text-primary">Rp5.000.000 – 10.000.000</span>
+            </div>
+            <ul class="list-unstyled text-start w-100 mt-3 flex-grow-1">
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Halaman tidak dibatasi</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Fitur & API khusus</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Panel admin opsional</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Zoom/WA meeting</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Hosting 3GB & domain bebas</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>SEO lanjutan + training</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Revisi fleksibel</li>
+              <li><i class="bi bi-clock me-2"></i>Mulai ±7 hari</li>
             </ul>
-            <a href="#cta" class="btn btn-outline-primary w-100 rounded-pill fw-semibold" aria-label="Konsultasi Paket Corporate">Mulai Sekarang</a>
+            <a href="formulir.html" class="btn btn-outline-primary rounded-pill w-100 fw-semibold mt-3">Pilih Paket</a>
           </div>
         </div>
       </div>
@@ -356,7 +374,183 @@
     </div>
   </div>
 </section>
-<!-- End Pricing Plans -->
+<!-- End Pricing Plans Section -->
+
+<!-- Start Graphic Design Packages Section -->
+<section id="paket-desain" class="py-5 bg-light position-relative overflow-hidden">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-uppercase">Paket Desain Grafis</h2>
+      <p class="text-muted fs-5">Desain visual menarik untuk kebutuhan branding dan promosi Anda</p>
+    </div>
+
+    <div class="row justify-content-center g-4">
+
+      <!-- Starter -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card pricing-card border-0 shadow-sm rounded-4 h-100 p-4">
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="icon-circle bg-light p-3 rounded-circle mb-3">
+              <i class="bi bi-palette fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-uppercase">Starter</h5>
+            <p class="text-muted mb-2">Untuk kebutuhan desain dasar dan cepat</p>
+            <div class="bg-light rounded-pill px-3 py-2 mb-3">
+              <span class="fw-bold text-primary">Rp50.000 – 250.000</span>
+            </div>
+            <ul class="list-unstyled text-start w-100 mt-3 flex-grow-1">
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>1–2 Desain (feed/poster)</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Waktu pengerjaan ±1 hari</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Format JPG & PNG</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Revisi 1x</li>
+            </ul>
+            <a href="formulir.html" class="btn btn-outline-primary rounded-pill w-100 fw-semibold mt-3">Pesan Paket</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pro -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card pricing-card featured border-0 shadow-lg rounded-4 h-100 p-4 position-relative">
+          <div class="badge bg-primary position-absolute top-0 start-50 translate-middle-x mt-n3 px-4 py-2 rounded-pill text-white fw-semibold">Paling Populer</div>
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="icon-circle bg-light p-3 rounded-circle mb-3">
+              <i class="bi bi-vector-pen fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-uppercase">Pro</h5>
+            <p class="text-muted mb-2">Untuk kebutuhan konten dan branding rutin</p>
+            <div class="bg-light rounded-pill px-3 py-2 mb-3">
+              <span class="fw-bold text-primary">Rp100.000 – 500.000</span>
+            </div>
+            <ul class="list-unstyled text-start w-100 mt-3 flex-grow-1">
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>5–10 Desain (feed, story, banner)</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Desain sesuai brand guide</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Format JPG, PNG, PDF</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Revisi hingga 2x</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Waktu ±3 hari</li>
+            </ul>
+            <a href="formulir.html" class="btn btn-primary rounded-pill w-100 fw-semibold mt-3">Pesan Paket</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Premium -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card pricing-card border-0 shadow-sm rounded-4 h-100 p-4">
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="icon-circle bg-light p-3 rounded-circle mb-3">
+              <i class="bi bi-easel2 fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-uppercase">Premium</h5>
+            <p class="text-muted mb-2">Untuk kebutuhan desain komplit dan intensif</p>
+            <div class="bg-light rounded-pill px-3 py-2 mb-3">
+              <span class="fw-bold text-primary">Rp150.000 – 500.000</span>
+            </div>
+            <ul class="list-unstyled text-start w-100 mt-3 flex-grow-1">
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Konten hingga 30 desain/bulan</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Banner, feed, story, poster</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Branding kit & guide</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>File mentahan (AI/PSD)</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Revisi fleksibel</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Diskusi & kolaborasi rutin</li>
+            </ul>
+            <a href="formulir.html" class="btn btn-outline-primary rounded-pill w-100 fw-semibold mt-3">Pesan Paket</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Graphic Design Packages Section -->
+
+<!-- Start Academic Support Packages Section -->
+<section id="akademik" class="py-5 position-relative overflow-hidden">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-uppercase">Paket Penunjang Akademik</h2>
+      <p class="text-muted fs-5">Dukungan profesional untuk tugas, makalah, presentasi, hingga terjemahan akademik</p>
+    </div>
+
+    <div class="row justify-content-center g-4">
+
+      <!-- Smart Paper -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card pricing-card border-0 shadow-sm rounded-4 h-100 p-4">
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="icon-circle p-3 rounded-circle mb-3">
+              <i class="bi bi-journal-text fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-uppercase">Smart Paper</h5>
+            <p class="text-muted mb-2">Penulisan & pengecekan tugas ringan</p>
+            <div class="bg-light rounded-pill px-3 py-2 mb-3">
+              <span class="fw-bold text-primary">Rp50.000 – 500.000</span>
+            </div>
+            <ul class="list-unstyled text-start w-100 mt-3 flex-grow-1">
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Penulisan makalah & artikel</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Review / ringkasan jurnal</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Formatting sesuai panduan</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Cek plagiarisme</li>
+              <li><i class="bi bi-check2-circle text-success me-2"></i>Revisi minor 1x</li>
+            </ul>
+            <a href="formulir.html" class="btn btn-outline-primary rounded-pill w-100 fw-semibold mt-3">Pesan Paket</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Scholar -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card pricing-card featured border-0 shadow-lg rounded-4 h-100 p-4 position-relative">
+          <div class="badge bg-primary position-absolute top-0 start-50 translate-middle-x mt-n3 px-4 py-2 rounded-pill text-white fw-semibold">Paling Diminati</div>
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="icon-circle p-3 rounded-circle mb-3">
+              <i class="bi bi-easel3 fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-uppercase">Visual Scholar</h5>
+            <p class="text-muted mb-2">Presentasi, desain & video akademik</p>
+            <div class="bg-light rounded-pill px-3 py-2 mb-3">
+              <span class="fw-bold text-primary">Rp100.000 – 500.000</span>
+            </div>
+            <ul class="list-unstyled text-start w-100 mt-3 flex-grow-1">
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Desain presentasi PowerPoint/Canva</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Editing video tugas & seminar</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Animasi ringan / transisi</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Infografis & visual akademik</li>
+              <li><i class="bi bi-check2-circle text-success me-2"></i>Waktu ±3 hari</li>
+            </ul>
+            <a href="formulir.html" class="btn btn-primary rounded-pill w-100 fw-semibold mt-3">Pesan Paket</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Academic Mastery -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card pricing-card border-0 shadow-sm rounded-4 h-100 p-4">
+          <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="icon-circle p-3 rounded-circle mb-3">
+              <i class="bi bi-translate fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold text-uppercase">Academic Mastery</h5>
+            <p class="text-muted mb-2">Terjemahan, plagiarisme & bimbingan</p>
+            <div class="bg-light rounded-pill px-3 py-2 mb-3">
+              <span class="fw-bold text-primary">Rp150.000 – 500.000</span>
+            </div>
+            <ul class="list-unstyled text-start w-100 mt-3 flex-grow-1">
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Terjemahan jurnal (EN-ID / ID-EN)</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Plagiarism reduction & proofreading</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Bimbingan & konsultasi presentasi</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Infografis / dokumen pendukung</li>
+              <li><i class="bi bi-check2-circle text-success me-2"></i>Revisi fleksibel</li>
+            </ul>
+            <a href="formulir.html" class="btn btn-outline-primary rounded-pill w-100 fw-semibold mt-3">Pesan Paket</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Academic Support Packages Section -->
 
 <!-- Start Portofolio -->
 <section id="portofolio" class="text-center py-5" aria-labelledby="judul-portofolio">
@@ -583,7 +777,7 @@
 </div>
 
 <!-- Start CTA Section -->
-<section id="cta" class="py-5 text-center position-relative overflow-hidden">
+<!-- <section id="cta" class="py-5 text-center position-relative overflow-hidden">
   <div class="container">
     <div class="row justify-content-center align-items-center">
       <div class="col-lg-8">
@@ -600,7 +794,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End CTA Section -->
 
 <!-- Start FAQ Section -->
@@ -694,7 +888,7 @@
       <div class="col-md-4 center-col mb-4 mb-md-0 d-flex flex-column align-items-center">
         <h5 class="mb-3">Ikuti Kami</h5>
         <div class="social-icons d-flex gap-3">
-          <a href="https://instagram.com" class="text-white" target="_blank" aria-label="Instagram">
+          <a href="https://www.instagram.com/nolatechno?igsh=MWN4ZnNodWg1dHF6YQ==" class="text-white" target="_blank" aria-label="Instagram">
             <i class="bi bi-instagram"></i>
           </a>
           <a href="https://tiktok.com" class="text-white" target="_blank" aria-label="TikTok">

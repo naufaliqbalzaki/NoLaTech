@@ -1210,11 +1210,6 @@ section {
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
 }
 
-.pricing-card .card-header {
-  background: transparent;
-  margin-bottom: 1.25rem;
-}
-
 .pricing-card .card-body {
   padding: 2.5rem 2rem;
 }
@@ -1233,12 +1228,20 @@ section {
   margin-bottom: 0.5rem;
 }
 
-.pricing-card h3.display-6 {
-  font-size: 2.25rem;
+/* Harga badge style */
+.pricing-card h4 {
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 1.25rem;
-  border-bottom: 1px dashed #dee2e6;
-  padding-bottom: 0.75rem;
+  background-color: #eef6ff;
+  color: #0d6efd;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.pricing-card h4:hover {
+  background-color: #d0e7ff;
 }
 
 /* Fitur List */
@@ -1308,37 +1311,6 @@ section {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
 }
 
-/* Warna Varian */
-.pricing-card.umkm {
-  background-color: #f9fcff;
-  border-color: #cfe2ff;
-}
-
-.pricing-card.umkm h5,
-.pricing-card.umkm i {
-  color: #0d6efd;
-}
-
-.pricing-card.bisnis {
-  background-color: #f8fefc;
-  border-color: #b5eadb;
-}
-
-.pricing-card.bisnis h5,
-.pricing-card.bisnis i {
-  color: #20c997;
-}
-
-.pricing-card.corporate {
-  background-color: #f8f9fa;
-  border-color: #cbd3da;
-}
-
-.pricing-card.corporate h5,
-.pricing-card.corporate i {
-  color: #0d6efd;
-}
-
 /* Badge Paling Populer */
 .pricing-card.featured {
   border: 2px solid #0d6efd;
@@ -1373,10 +1345,9 @@ section {
     padding: 2rem 1.5rem;
   }
 
-  .pricing-card h3.display-6 {
-    font-size: 2rem;
-    border-bottom: none;
-    padding-bottom: 0;
+  .pricing-card h4 {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .pricing-card li {
@@ -1395,6 +1366,405 @@ section {
 }
 
 /* --- END PRICING SECTION ENHANCED FINAL --- */
+
+/* --- START PAKET DESAIN GRAFIS SECTION --- */
+
+#paket-desain {
+  background: radial-gradient(circle at top left, #e3f2fd 0%, #f9fbff 60%, #ffffff 100%);
+  padding: 100px 15px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#paket-desain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
+  opacity: 0.025;
+  z-index: -1;
+}
+
+#paket-desain h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #10284e;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#paket-desain p {
+  color: #6c757d;
+  margin-bottom: 50px;
+  font-size: 1.125rem;
+}
+
+/* Pricing Card */
+.pricing-card {
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff, #f8f9fb);
+  border: 1px solid #dee2e6;
+  transition: all 0.35s ease;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-card .card-body {
+  padding: 2.5rem 2rem;
+}
+
+.pricing-card h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.pricing-card p {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+/* Harga badge style */
+.pricing-card .harga-badge,
+.pricing-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  background-color: #eef6ff;
+  color: #0d6efd;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.pricing-card .harga-badge:hover {
+  background-color: #d0e7ff;
+}
+
+/* Fitur List */
+.pricing-card ul {
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-card li {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.pricing-card li i {
+  font-size: 1.1rem;
+  margin-right: 10px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.pricing-card li:hover i {
+  transform: scale(1.15);
+  color: #0d6efd;
+}
+
+/* Icon Circle */
+.icon-circle {
+  background-color: #f1f5ff;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button */
+.pricing-card .btn {
+  transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.pricing-card .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 110, 253, 0.1);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.pricing-card .btn:hover::after {
+  left: 0;
+}
+
+.pricing-card .btn:hover {
+  box-shadow: 0 0.75rem 1.5rem rgba(13, 110, 253, 0.15);
+}
+
+/* Badge Paling Populer */
+.pricing-card.featured {
+  border: 2px solid #0d6efd;
+}
+
+.pricing-card.featured .badge {
+  background-color: #0d6efd;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 999px;
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 10px rgba(13, 110, 253, 0.15);
+}
+
+/* Responsiveness */
+@media (max-width: 767px) {
+  #paket-desain {
+    padding: 70px 15px;
+  }
+
+  #paket-desain h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .pricing-card .card-body {
+    padding: 2rem 1.5rem;
+  }
+
+  .pricing-card .harga-badge {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .pricing-card li {
+    font-size: 0.9rem;
+  }
+
+  .pricing-card .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .pricing-card .badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+  }
+}
+
+/* --- END PAKET DESAIN GRAFIS SECTION --- */
+
+/* --- START ACADEMIC PACKAGES SECTION FINAL --- */
+
+#akademik {
+  background: radial-gradient(circle at top left, #e3f2fd 0%, #f9fbff 60%, #ffffff 100%);
+  padding: 100px 15px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#akademik::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/symphony.png");
+  opacity: 0.02;
+  z-index: -1;
+}
+
+#akademik h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #10284e;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+#akademik p {
+  color: #6c757d;
+  font-size: 1.125rem;
+  margin-bottom: 50px;
+}
+
+/* Card Styling */
+#akademik .pricing-card {
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff, #f8f9fb);
+  border: 1px solid #dee2e6;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+#akademik .pricing-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.08);
+}
+
+#akademik .icon-circle {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef6ff;
+  border-radius: 50%;
+}
+
+#akademik h5 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+#akademik h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0d6efd;
+  background-color: #e8f1ff;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  display: inline-block;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+
+#akademik h4:hover {
+  background-color: #d0e7ff;
+}
+
+/* List Items */
+#akademik ul {
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+#akademik li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+#akademik li i {
+  color: #0d6efd;
+  font-size: 1.1rem;
+  margin-right: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#akademik li:hover i {
+  transform: scale(1.15);
+  color: #084298;
+}
+
+/* Badge Highlight */
+#akademik .featured {
+  border: 2px solid #0d6efd;
+}
+
+#akademik .featured .badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #0d6efd;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0.5rem 1.25rem rgba(13, 110, 253, 0.2);
+}
+
+/* Buttons */
+#akademik .btn {
+  transition: all 0.3s ease;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 1;
+}
+
+#akademik .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 110, 253, 0.1);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+#akademik .btn:hover::after {
+  left: 0;
+}
+
+#akademik .btn:hover {
+  box-shadow: 0 0.75rem 1.5rem rgba(13, 110, 253, 0.15);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  #akademik {
+    padding: 70px 15px;
+  }
+
+  #akademik h2 {
+    font-size: 2rem;
+  }
+
+  #akademik h4 {
+    font-size: 1.05rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  #akademik li {
+    font-size: 0.9rem;
+  }
+
+  #akademik .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  #akademik .badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+  }
+}
+
+/* --- END ACADEMIC PACKAGES SECTION FINAL --- */
 
 /* --- START PORTOFOLIO SECTION --- */
 
