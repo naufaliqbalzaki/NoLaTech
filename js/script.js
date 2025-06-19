@@ -185,43 +185,228 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // === TESTIMONI FORM ===
-  const openFormBtn = document.getElementById("openTestiForm");
-  const testiModal = document.getElementById("testiModal");
-  const testiForm = document.getElementById("testiForm");
-  const testiCarouselInner = document.querySelector("#carouselExample .carousel-inner");
+// === TESTIMONI FORM ===
+const openFormBtn = document.getElementById("openTestiForm");
+const testiModal = document.getElementById("testiModal");
+const testiForm = document.getElementById("testiForm");
+const testiCarouselInner = document.getElementById("testimoniTrack"); // Ganti ID sesuai HTML scroll
 
-  if (openFormBtn && testiModal && testiForm && testiCarouselInner) {
-    openFormBtn.addEventListener("click", () => {
-      new bootstrap.Modal(testiModal).show();
+if (openFormBtn && testiModal && testiForm && testiCarouselInner) {
+  openFormBtn.addEventListener("click", () => {
+    new bootstrap.Modal(testiModal).show();
+  });
+
+  testiForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("testiName").value.trim();
+    const message = document.getElementById("testiMessage").value.trim();
+
+    if (!name || !message) return;
+
+    const newItem = document.createElement("div");
+    newItem.classList.add("testimoni-card", "flex-shrink-0", "bg-white", "rounded", "shadow-sm", "p-4");
+    newItem.style.minWidth = "320px";
+    newItem.innerHTML = `
+      <blockquote class="blockquote mb-0">
+        <p class="mb-3 fs-5 fw-medium text-dark">"${message}"</p>
+        <footer class="blockquote-footer text-primary fs-6">
+          <span class="author-name">${name}</span>
+        </footer>
+      </blockquote>
+    `;
+    testiCarouselInner.appendChild(newItem);
+
+    testiForm.reset();
+    bootstrap.Modal.getInstance(testiModal).hide();
+  });
+}
+
+// === FAQ Accordion Manual Toggle ===
+document.querySelectorAll('#faq .accordion-button').forEach(button => {
+  button.addEventListener('click', function () {
+    const targetSelector = this.getAttribute('data-target');
+    const target = document.querySelector(targetSelector);
+    const isOpen = target.classList.contains('show');
+
+    // Toggle state
+    if (isOpen) {
+      target.classList.remove('show');
+      this.classList.add('collapsed');
+      this.setAttribute('aria-expanded', 'false');
+    } else {
+      target.classList.add('show');
+      this.classList.remove('collapsed');
+      this.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+  // === PORTFOLIO AUTO SCROLL LOOP ===
+  const portfolioTrack = document.querySelector(".portfolio-carousel .carousel-track");
+
+  if (portfolioTrack) {
+    // Duplicate items for infinite loop effect
+    portfolioTrack.innerHTML += portfolioTrack.innerHTML;
+
+    let scrollSpeed = 0.6; // pixels per frame
+    let scrollPos = 0;
+
+    const step = () => {
+      scrollPos += scrollSpeed;
+      if (scrollPos >= portfolioTrack.scrollWidth / 2) {
+        scrollPos = 0; // reset to start
+      }
+      portfolioTrack.style.transform = `translateX(-${scrollPos}px)`;
+      requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+  }
+
+  // === PORTFOLIO DRAG-SCROLL ===
+  const carouselWrapper = document.querySelector('.portfolio-carousel');
+  const carouselTrack = carouselWrapper?.querySelector('.carousel-track');
+
+  let isDragging = false;
+  let startX;
+  let scrollLeft;
+
+  if (carouselWrapper && carouselTrack) {
+    carouselWrapper.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      carouselWrapper.classList.add('dragging');
+      startX = e.pageX - carouselWrapper.offsetLeft;
+      scrollLeft = carouselWrapper.scrollLeft;
     });
 
-    testiForm.addEventListener("submit", (e) => {
+    carouselWrapper.addEventListener('mouseleave', () => {
+      isDragging = false;
+      carouselWrapper.classList.remove('dragging');
+    });
+
+    carouselWrapper.addEventListener('mouseup', () => {
+      isDragging = false;
+      carouselWrapper.classList.remove('dragging');
+    });
+
+    carouselWrapper.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
       e.preventDefault();
-      const name = document.getElementById("testiName").value.trim();
-      const message = document.getElementById("testiMessage").value.trim();
+      const x = e.pageX - carouselWrapper.offsetLeft;
+      const walk = (x - startX) * 1.2; // scroll speed
+      carouselWrapper.scrollLeft = scrollLeft - walk;
+    });
 
-      if (!name || !message) return;
+    // Touch support
+    let startTouchX = 0;
+    let startTouchScroll = 0;
 
-      const newItem = document.createElement("div");
-      newItem.classList.add("carousel-item");
-      newItem.innerHTML = `
-        <blockquote class="blockquote">
-          <p>"${message}"</p>
-          <footer class="blockquote-footer">
-            <span class="author-name">${name}</span>
-          </footer>
-        </blockquote>
-      `;
-      testiCarouselInner.appendChild(newItem);
+    carouselWrapper.addEventListener('touchstart', (e) => {
+      startTouchX = e.touches[0].pageX;
+      startTouchScroll = carouselWrapper.scrollLeft;
+    });
 
-      const items = testiCarouselInner.querySelectorAll(".carousel-item");
-      if (items.length === 1) newItem.classList.add("active");
-
-      testiForm.reset();
-      bootstrap.Modal.getInstance(testiModal).hide();
+    carouselWrapper.addEventListener('touchmove', (e) => {
+      const x = e.touches[0].pageX;
+      const walk = (x - startTouchX) * 1.2;
+      carouselWrapper.scrollLeft = startTouchScroll - walk;
     });
   }
+
+// === TESTIMONI AUTO SCROLL LOOP + DRAG FIXED ===
+const testimoniWrapper = document.querySelector(".testimoni-scroll-wrapper");
+const testimoniTrack = testimoniWrapper?.querySelector(".testimoni-track");
+
+if (testimoniTrack && testimoniWrapper) {
+  // Gandakan isi track untuk efek loop
+  testimoniTrack.innerHTML += testimoniTrack.innerHTML;
+
+  let scrollSpeed = 0.6;
+  let scrollPos = 0;
+  let isPaused = false;
+
+  let isDragging = false;
+  let dragStartX = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+
+  // Ambil nilai translateX sekarang
+  const getTranslateX = (el) => {
+    const style = window.getComputedStyle(el);
+    const matrix = new DOMMatrixReadOnly(style.transform);
+    return matrix.m41; // nilai translateX
+  };
+
+  // Update transform langsung
+  const setTranslateX = (value) => {
+    testimoniTrack.style.transform = `translateX(${value}px)`;
+  };
+
+  // Loop auto-scroll
+  const animate = () => {
+    if (!isPaused && !isDragging) {
+      scrollPos += scrollSpeed;
+      if (scrollPos >= testimoniTrack.scrollWidth / 2) {
+        scrollPos = 0;
+      }
+      setTranslateX(-scrollPos);
+    }
+    requestAnimationFrame(animate);
+  };
+  requestAnimationFrame(animate);
+
+  // === Drag Desktop ===
+  testimoniWrapper.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    isPaused = true;
+    dragStartX = e.clientX;
+    prevTranslate = getTranslateX(testimoniTrack);
+    testimoniWrapper.classList.add("dragging");
+  });
+
+  testimoniWrapper.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    const deltaX = e.clientX - dragStartX;
+    currentTranslate = prevTranslate + deltaX;
+    setTranslateX(currentTranslate);
+  });
+
+  testimoniWrapper.addEventListener("mouseup", () => {
+    isDragging = false;
+    isPaused = false;
+    scrollPos = -getTranslateX(testimoniTrack); // sinkron ulang posisi
+    testimoniWrapper.classList.remove("dragging");
+  });
+
+  testimoniWrapper.addEventListener("mouseleave", () => {
+    if (!isDragging) return;
+    isDragging = false;
+    isPaused = false;
+    scrollPos = -getTranslateX(testimoniTrack);
+    testimoniWrapper.classList.remove("dragging");
+  });
+
+  // === Drag Touch ===
+  testimoniWrapper.addEventListener("touchstart", (e) => {
+    isDragging = true;
+    isPaused = true;
+    dragStartX = e.touches[0].clientX;
+    prevTranslate = getTranslateX(testimoniTrack);
+  });
+
+  testimoniWrapper.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const deltaX = e.touches[0].clientX - dragStartX;
+    currentTranslate = prevTranslate + deltaX;
+    setTranslateX(currentTranslate);
+  });
+
+  testimoniWrapper.addEventListener("touchend", () => {
+    isDragging = false;
+    isPaused = false;
+    scrollPos = -getTranslateX(testimoniTrack);
+  });
+}
 
   // === PORTFOLIO MODAL ===
   const portfolioItems = document.querySelectorAll(".portfolio-item");
