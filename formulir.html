@@ -9,53 +9,66 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
     body {
-      background: radial-gradient(circle at top left, #e3f2fd, #f9fbff 60%, #ffffff 100%);
+      background: linear-gradient(135deg, #f0f4ff, #ffffff);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 2rem;
+      font-family: "Segoe UI", sans-serif;
     }
 
     .form-container {
       width: 100%;
-      max-width: 640px;
-      background-color: #ffffff;
+      max-width: 720px;
+      background: #ffffff;
       padding: 3rem 2.5rem;
       border-radius: 20px;
-      box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
       border: 1px solid #dee2e6;
       animation: fadeIn 0.6s ease;
     }
 
     .form-container h2 {
-      font-weight: 700;
-      color: #0d6efd;
-      margin-bottom: 0.75rem;
+      font-weight: 800;
+      color: #0d2d5b;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
     }
 
     .form-container p {
       color: #6c757d;
-      font-size: 0.95rem;
+      font-size: 1rem;
       margin-bottom: 2rem;
     }
 
     .form-label {
-      font-weight: 500;
+      font-weight: 600;
+      color: #343a40;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
     }
 
     .form-control,
     .form-select,
     textarea {
-      border-radius: 10px;
+      border-radius: 12px;
+      border: 1px solid #ced4da;
       transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .form-control:hover,
+    .form-select:hover,
+    textarea:hover {
+      border-color: #a0c4ff;
     }
 
     .form-control:focus,
     .form-select:focus,
     textarea:focus {
       border-color: #0d6efd;
-      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.12);
     }
 
     .btn-whatsapp {
@@ -65,18 +78,34 @@
       gap: 0.5rem;
       font-weight: 600;
       font-size: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 50px;
       transition: all 0.3s ease;
+      background-color: #25d366;
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebe5d;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+      transform: translateY(-1px);
     }
 
     .btn-whatsapp i {
       font-size: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-whatsapp:hover i {
+      transform: rotate(10deg) scale(1.1);
     }
 
     .btn-back {
-      margin-top: 1.2rem;
+      margin-top: 1.5rem;
       display: block;
       text-align: center;
-      color: #0d6efd;
+      color: #0d2d5b;
       font-weight: 500;
       text-decoration: none;
       transition: color 0.2s ease;
@@ -104,76 +133,173 @@
         transform: translateY(0);
       }
     }
+
+    @media (max-width: 576px) {
+      .form-container {
+        padding: 2rem 1.5rem;
+      }
+
+      .form-container h2 {
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="form-container">
-    <h2 class="text-center">Formulir Kesediaan</h2>
-    <p class="text-center">Isi data berikut untuk melanjutkan pemesanan layanan NoLaTech</p>
+<div class="form-container">
+  <h2 class="text-center">Formulir Kesediaan</h2>
+  <p class="text-center">Isi data berikut untuk melanjutkan pemesanan layanan NoLaTech</p>
 
-    <form id="formWa">
-      <div class="mb-3">
-        <label for="nama" class="form-label">Nama Lengkap</label>
-        <input type="text" class="form-control" id="nama" placeholder="Contoh: Dimas Aditya" required />
-      </div>
-      <div class="mb-3">
-        <label for="paket" class="form-label">Paket yang Dipilih</label>
-        <select class="form-select" id="paket" required>
-          <option value="" disabled selected>Pilih salah satu paket</option>
-          <optgroup label="Pembuatan Website">
-            <option value="Website - Basic">Website - Basic</option>
-            <option value="Website - Standar">Website - Standar</option>
-            <option value="Website - Premium">Website - Premium</option>
-          </optgroup>
-          <optgroup label="Desain Grafis">
-            <option value="Desain Grafis - Starter">Desain Grafis - Starter</option>
-            <option value="Desain Grafis - Pro">Desain Grafis - Pro</option>
-            <option value="Desain Grafis - Premium">Desain Grafis - Premium</option>
-          </optgroup>
-          <optgroup label="Penunjang Akademik">
-            <option value="Akademik - Smart Paper">Akademik - Smart Paper</option>
-            <option value="Akademik - Visual Scholar">Akademik - Visual Scholar</option>
-            <option value="Akademik - Academic Mastery">Akademik - Academic Mastery</option>
-          </optgroup>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="pesan" class="form-label">Catatan Tambahan (Opsional)</label>
-        <textarea class="form-control" id="pesan" rows="3" placeholder="Tulis kebutuhan, fitur khusus, atau deadline Anda..."></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary w-100 rounded-pill btn-whatsapp">
-        Kirim ke WhatsApp <i class="bi bi-whatsapp"></i>
-      </button>
-    </form>
+  <form id="formWa">
+    <div class="mb-3">
+      <label for="nama" class="form-label">Nama Lengkap</label>
+      <input type="text" class="form-control" id="nama" placeholder="Contoh: Dimas Aditya" required />
+    </div>
 
-    <p class="info-wa">
-      Jika WhatsApp tidak terbuka otomatis, pastikan Anda telah login di <a href="https://web.whatsapp.com/" target="_blank">web.whatsapp.com</a> atau buka di ponsel Anda.
-    </p>
+    <!-- Jenis Layanan -->
+    <div class="mb-3">
+      <label for="layanan" class="form-label">Jenis Layanan</label>
+      <select class="form-select" id="layanan" required>
+        <option value="">Pilih Jenis Layanan</option>
+        <option value="website">Pembuatan Website</option>
+        <option value="akademik">Layanan Akademik</option>
+      </select>
+    </div>
 
-    <a href="index.html" class="btn-back"><i class="bi bi-arrow-left-circle me-1"></i> Kembali ke Beranda</a>
-  </div>
+    <!-- Jenis Paket -->
+    <div class="mb-3">
+      <label for="paket" class="form-label">Paket yang Dipilih</label>
+      <select class="form-select" id="paket" name="paket" required disabled>
+        <option value="">Pilih Jenis Paket</option>
+      </select>
+    </div>
 
-  <script>
-    document.getElementById("formWa").addEventListener("submit", function(e) {
-      e.preventDefault();
+    <!-- Jenis Pekerjaan -->
+    <div class="mb-3">
+      <label for="jenis-pekerjaan" class="form-label">Jenis Pekerjaan</label>
+      <select class="form-select" id="jenis-pekerjaan" name="jenis_pekerjaan" required disabled>
+        <option value="">Pilih Jenis Pekerjaan</option>
+      </select>
+    </div>
 
-      const nama = document.getElementById("nama").value.trim();
-      const paket = document.getElementById("paket").value;
-      const pesan = document.getElementById("pesan").value.trim();
-      const nomor = "6281234049926"; // Ganti ke nomor WhatsApp aktif Anda
+    <div class="mb-3">
+      <label for="pesan" class="form-label">Catatan Tambahan (Opsional)</label>
+      <textarea class="form-control" id="pesan" rows="3" placeholder="Tulis kebutuhan, fitur khusus, atau deadline Anda..."></textarea>
+    </div>
 
-      if (!paket) {
-        alert("Silakan pilih paket terlebih dahulu.");
-        return;
-      }
+    <button type="submit" class="btn btn-primary w-100 rounded-pill btn-whatsapp">
+      Kirim ke WhatsApp <i class="bi bi-whatsapp"></i>
+    </button>
+  </form>
 
-      const message = `Halo NoLaTech,%0ASaya *${nama}* bersedia menggunakan salah satu layanan NoLaTech.%0A%0A📦 Paket: *${paket}*%0A📝 Catatan: ${pesan || "-"}%0A%0ATerima kasih.`;
-      const url = `https://api.whatsapp.com/send?phone=${nomor}&text=${message}`;
+  <p class="info-wa">
+    Jika WhatsApp tidak terbuka otomatis, pastikan Anda telah login di <a href="https://web.whatsapp.com/" target="_blank">web.whatsapp.com</a> atau buka di ponsel Anda.
+  </p>
 
-      window.open(url, '_blank');
+  <a href="index.html" class="btn-back"><i class="bi bi-arrow-left-circle me-1"></i> Kembali ke Beranda</a>
+</div>
+
+<script>
+  const paketOptions = {
+    website: [
+      { value: "Website - Basic", text: "Website - Basic (Rp250.000 – Rp1.000.000)" },
+      { value: "Website - Standar", text: "Website - Standar (Rp1.500.000 – Rp3.000.000)" }
+    ],
+    akademik: [
+      { value: "Akademik - Smart Paper", text: "Smart Paper (Rp5.000 – Rp400.000)" },
+      { value: "Akademik - Visual Scholar", text: "Visual Scholar (Rp15.000 – Rp500.000)" }
+    ]
+  };
+
+  const pekerjaanOptions = {
+    "Website - Basic": [
+      "Personal Branding / Portofolio Pribadi",
+      "UMKM (Usaha Mikro Kecil Menengah)",
+      "Promosi Produk atau Jasa"
+    ],
+    "Website - Standar": [
+      "Usaha Kecil dan Menengah (UKM) / Bisnis Digital",
+      "Promosi Jasa Profesional",
+      "Company Profile"
+    ],
+    "Akademik - Smart Paper": [
+      "Penulisan artikel & jurnal",
+      "Review / ringkasan jurnal",
+      "Formatting sesuai panduan",
+      "Cek plagiarisme / Turunkan plagiarisme"
+    ],
+    "Akademik - Visual Scholar": [
+      "Desain presentasi PowerPoint / Canva",
+      "Editing video tugas & konten",
+      "Ide konten & desain feeds",
+      "Infografis & visual akademik"
+    ]
+  };
+
+  const layananSelect = document.getElementById("layanan");
+  const paketSelect = document.getElementById("paket");
+  const pekerjaanSelect = document.getElementById("jenis-pekerjaan");
+
+  layananSelect.addEventListener("change", () => {
+    const jenis = layananSelect.value;
+
+    paketSelect.innerHTML = '<option value="">Pilih Jenis Paket</option>';
+    pekerjaanSelect.innerHTML = '<option value="">Pilih Jenis Pekerjaan</option>';
+    pekerjaanSelect.disabled = true;
+
+    if (!jenis || !paketOptions[jenis]) {
+      paketSelect.disabled = true;
+      return;
+    }
+
+    paketOptions[jenis].forEach(opt => {
+      const option = document.createElement("option");
+      option.value = opt.value;
+      option.textContent = opt.text;
+      paketSelect.appendChild(option);
     });
-  </script>
+    paketSelect.disabled = false;
+  });
+
+  paketSelect.addEventListener("change", () => {
+    const paket = paketSelect.value;
+    pekerjaanSelect.innerHTML = '<option value="">Pilih Jenis Pekerjaan</option>';
+
+    if (!paket || !pekerjaanOptions[paket]) {
+      pekerjaanSelect.disabled = true;
+      return;
+    }
+
+    pekerjaanOptions[paket].forEach(item => {
+      const opt = document.createElement("option");
+      opt.value = item;
+      opt.textContent = item;
+      pekerjaanSelect.appendChild(opt);
+    });
+    pekerjaanSelect.disabled = false;
+  });
+
+  document.getElementById("formWa").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value.trim();
+    const layanan = layananSelect.options[layananSelect.selectedIndex].text;
+    const paket = paketSelect.value;
+    const pekerjaan = pekerjaanSelect.value;
+    const pesan = document.getElementById("pesan").value.trim();
+    const nomor = "6285855017514"; // Ganti dengan nomor WA Anda
+
+    if (!layananSelect.value || !paket || !pekerjaan) {
+      alert("Silakan lengkapi semua pilihan terlebih dahulu.");
+      return;
+    }
+
+    const message = `Halo NoLaTech,%0ASaya *${nama}* bersedia menggunakan layanan NoLaTech.%0A%0A📁 Jenis Layanan: *${layanan}*%0A📦 Paket: *${paket}*%0A💼 Jenis Pekerjaan: *${pekerjaan}*%0A📝 Catatan: ${pesan || "-"}%0A%0ATerima kasih.`;
+    const url = `https://api.whatsapp.com/send?phone=${nomor}&text=${message}`;
+    window.open(url, '_blank');
+  });
+</script>
 
 </body>
 </html>
