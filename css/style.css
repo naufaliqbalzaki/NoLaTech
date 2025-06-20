@@ -1962,8 +1962,7 @@ section {
 }
 
 /* === Card Container (support .team-card & .pricing-card) === */
-#profil-tim .team-card,
-#profil-tim .pricing-card {
+#profil-tim .team-card {
   background: rgba(255, 255, 255, 0.96);
   border-radius: 20px;
   padding: 2.5rem 1.5rem 2rem;
