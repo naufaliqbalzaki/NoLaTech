@@ -1949,6 +1949,7 @@ section {
   color: #0d2d5b;
   letter-spacing: 1px;
   margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 #profil-tim p {
@@ -1957,10 +1958,12 @@ section {
   max-width: 720px;
   margin: 0 auto 60px;
   line-height: 1.7;
+  transition: all 0.3s ease;
 }
 
-/* === Card Container === */
-#profil-tim .team-card {
+/* === Card Container (support .team-card & .pricing-card) === */
+#profil-tim .team-card,
+#profil-tim .pricing-card {
   background: rgba(255, 255, 255, 0.96);
   border-radius: 20px;
   padding: 2.5rem 1.5rem 2rem;
@@ -1975,23 +1978,28 @@ section {
   animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
   transform: translateY(40px);
+  will-change: transform;
 }
 
-#profil-tim .team-card:hover {
+#profil-tim .team-card:hover,
+#profil-tim .pricing-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 26px 60px rgba(0, 0, 0, 0.08);
 }
 
-/* === Featured Badge (Like Pricing Card) === */
-#profil-tim .team-card.featured {
+/* === Featured Border === */
+#profil-tim .team-card.featured,
+#profil-tim .pricing-card.featured {
   border: 2px solid #0d6efd;
 }
 
-#profil-tim .team-card .badge-top {
+/* === Badge Support (badge-top or Bootstrap .badge) === */
+#profil-tim .badge-top,
+#profil-tim .badge {
   position: absolute;
   top: -12px;
   left: 50%;
-  transform: translate(-50%);
+  transform: translateX(-50%);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 6px 14px;
@@ -2009,7 +2017,19 @@ section {
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+#profil-tim .team-photo::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 #profil-tim .team-photo img {
@@ -2031,9 +2051,11 @@ section {
   font-size: 1.15rem;
   color: #0d2d5b;
   margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
 }
 
-#profil-tim .team-card p {
+#profil-tim .team-card p,
+#profil-tim .pricing-card p {
   font-size: 0.95rem;
   color: #6c757d;
   margin-bottom: 1rem;
@@ -2063,6 +2085,12 @@ section {
   color: #fff;
 }
 
+/* === Focus Accessibility === */
+#profil-tim .btn:focus {
+  outline: 2px dashed #3390ff;
+  outline-offset: 4px;
+}
+
 /* === Fade Animation === */
 @keyframes fadeInUp {
   to {
@@ -2086,12 +2114,14 @@ section {
     margin-bottom: 40px;
   }
 
+  #profil-tim .icon-circle,
   #profil-tim .team-photo {
     width: 110px;
     height: 110px;
   }
 
-  #profil-tim .team-card .badge-top {
+  #profil-tim .badge-top,
+  #profil-tim .badge {
     font-size: 0.7rem;
     padding: 5px 12px;
   }
@@ -2109,21 +2139,30 @@ section {
   }
 
   #profil-tim p,
-  #profil-tim .team-card p {
+  #profil-tim .team-card p,
+  #profil-tim .pricing-card p {
     color: #d0d3dc;
   }
 
-  #profil-tim .team-card {
+  #profil-tim .team-card,
+  #profil-tim .pricing-card {
     background: rgba(30, 41, 59, 0.96);
     color: #fff;
     box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
   }
 
-  #profil-tim .team-card::before {
+  #profil-tim .team-card::before,
+  #profil-tim .pricing-card::before {
     background: linear-gradient(135deg, #3390ff, #ffffff10);
   }
 
-  #profil-tim .team-card .badge-top {
+  #profil-tim .team-photo::before,
+  #profil-tim .icon-circle::before {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  }
+
+  #profil-tim .badge-top,
+  #profil-tim .badge {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
