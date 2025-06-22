@@ -143,6 +143,105 @@
         font-size: 1.5rem;
       }
     }
+
+    /* === FINAL DARK MODE SUPPORT FOR FORMULIR === */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(135deg, #0a0f1a, #111827);
+        color: #e2e8f0;
+      }
+
+      .form-container {
+        background-color: #1e293b;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 30px rgba(0, 229, 255, 0.07);
+      }
+
+      .form-container h2 {
+        color: #f1f5f9;
+      }
+
+      .form-container p {
+        color: #94a3b8;
+      }
+
+      .form-label {
+        color: #cbd5e1;
+      }
+
+      .form-control,
+      .form-select,
+      textarea {
+        background-color: #0f172a !important;
+        color: #f8fafc !important;
+        border: 1px solid #334155;
+      }
+
+      .form-control::placeholder,
+      textarea::placeholder {
+        color: #64748b !important;
+        opacity: 1 !important;
+      }
+
+      .form-control:focus,
+      .form-select:focus,
+      textarea:focus {
+        background-color: #1e293b !important;
+        border-color: #38bdf8 !important;
+        box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.2);
+        color: #ffffff !important;
+      }
+
+      .form-control:disabled,
+      .form-select:disabled {
+        background-color: #1e293b !important;
+        color: #94a3b8 !important;
+        border-color: #334155 !important;
+        opacity: 0.7;
+      }
+
+      .btn-whatsapp {
+        background-color: #22c55e;
+        color: #0f172a;
+        box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25);
+      }
+
+      .btn-whatsapp:hover {
+        background-color: #16a34a;
+        box-shadow: 0 6px 18px rgba(34, 197, 94, 0.35);
+        transform: translateY(-2px);
+      }
+
+      .btn-back {
+        color: #60a5fa;
+      }
+
+      .btn-back:hover {
+        color: #3b82f6;
+        text-decoration: underline;
+      }
+
+      .info-wa {
+        color: #9ca3af;
+      }
+
+      .info-wa a {
+        color: #38bdf8;
+      }
+
+      .info-wa a:hover {
+        color: #0ea5e9;
+      }
+
+      /* Autofill background fix */
+      input:-webkit-autofill,
+      textarea:-webkit-autofill,
+      select:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #1e293b inset !important;
+        box-shadow: 0 0 0px 1000px #1e293b inset !important;
+        -webkit-text-fill-color: #f8fafc !important;
+      }
+    }   
   </style>
 </head>
 <body>

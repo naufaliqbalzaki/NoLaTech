@@ -1,0 +1,666 @@
+/* ==================================================
+   Start Tampilan Login Admin - NoLaTech
+================================================== */
+
+/* Global */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f4f7fc;
+  font-family: Arial, sans-serif;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login Box */
+.login-container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  padding: 40px;
+}
+
+/* Heading */
+.login-container h2 {
+  color: #0d6efd;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Labels & Input */
+label {
+  font-weight: 600;
+}
+
+input {
+  font-size: 1rem;
+}
+
+input[type="password"] {
+  padding-right: 40px;
+}
+
+/* Button */
+button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #084298;
+}
+
+/* Hide/Show password (optional feature) */
+#togglePassword {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+#togglePassword i {
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 25px;
+  }
+}
+
+/* ==================================================
+   End Tampilan Login Admin
+================================================== */
+
+
+/* ==================================================
+   Tampilan Dashboard Admin - Versi Premium Final
+================================================== */
+
+/* -----------------------------
+   Global Styling
+----------------------------- */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f4f7;
+  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* -----------------------------
+   Sidebar Styling
+----------------------------- */
+.sidebar {
+  background-color: #2c3e50;
+  min-height: 100vh;
+  transition: all 0.3s ease-in-out;
+  z-index: 1050;
+}
+
+.sidebar .nav-link {
+  color: #ecf0f1;
+  font-weight: 500;
+  padding: 12px 20px;
+  margin-bottom: 8px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.sidebar .nav-link.active {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.sidebar .logo-wrapper {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  border-bottom: 1px solid #444;
+}
+
+.logo-wrapper img {
+  width: 60px;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* -----------------------------
+   Main Content Area
+----------------------------- */
+main {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* -----------------------------
+   Statistik Cards
+----------------------------- */
+.card {
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.gradient-card {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.glow-icon {
+  font-size: 3rem;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #6dd5fa, #2980b9);
+  color: #fff;
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #a1ffce, #00c9ff);
+  color: #fff;
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, #c2e9fb, #a18cd1);
+  color: #fff;
+}
+
+/* -----------------------------
+   Grafik Card
+----------------------------- */
+.card .card-header {
+  background-color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -----------------------------
+   Footer
+----------------------------- */
+footer {
+  background-color: transparent;
+  color: #7f8c8d;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* -----------------------------
+   Sidebar Toggle Mobile
+----------------------------- */
+.sidebar-toggle {
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-left: 10px;
+}
+
+/* Overlay for Sidebar Mobile */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1049;
+}
+
+.overlay.show {
+  display: block;
+}
+
+/* -----------------------------
+   Animations
+----------------------------- */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------
+   Responsive Adjustments
+----------------------------- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    display: block;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  main {
+    padding-top: 1rem;
+  }
+
+  .card {
+    margin-bottom: 1.25rem;
+  }
+
+  .glow-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* ==================================================
+   End Tampilan Dashboard Premium
+================================================== */
+
+/* ==================================================
+   Start Testimoni - Kelola Testimoni
+================================================== */
+
+/* -------------------------------
+   Modal Styling Testimoni
+------------------------------- */
+#testimoniModal .modal-dialog {
+  max-width: 500px;
+}
+
+#testimoniModal .modal-header {
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+#testimoniModal .modal-title {
+  font-weight: 600;
+}
+
+#testimoniModal .btn-close {
+  filter: brightness(0) invert(1);
+}
+
+/* -------------------------------
+   Form Styling Testimoni
+------------------------------- */
+#testimoniForm .form-label {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+#testimoniForm .form-control,
+#testimoniForm textarea {
+  border-radius: 8px;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+}
+
+#testimoniForm .form-control:focus,
+#testimoniForm textarea:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* -------------------------------
+   Tabel Testimoni Styling
+------------------------------- */
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-bottom: 2px solid #0a58ca;
+}
+
+.table td {
+  background-color: #ffffff;
+  color: #2c3e50;
+}
+
+/* -------------------------------
+   Tombol Tambah Testimoni
+------------------------------- */
+#addTestimoniBtn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 50px;
+  background-color: #0d6efd;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#addTestimoniBtn:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.03);
+}
+
+/* -------------------------------
+   Responsiveness
+------------------------------- */
+@media (max-width: 768px) {
+  #addTestimoniBtn {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/* ==================================================
+   End Testimoni
+================================================== */
+
+/* ==================================================
+   Start Portofolio - Kelola Portofolio
+================================================== */
+
+/* -----------------------------
+   Modal Styling
+----------------------------- */
+#portofolioModal .modal-dialog {
+  max-width: 600px;
+}
+
+#portofolioModal .modal-header {
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+#portofolioModal .modal-title {
+  font-weight: 600;
+}
+
+#portofolioModal .btn-close {
+  filter: brightness(0) invert(1);
+}
+
+/* -----------------------------
+   Form Styling
+----------------------------- */
+#portofolioForm .form-label {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+#portofolioForm .form-control,
+#portofolioForm textarea {
+  border-radius: 8px;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+}
+
+#portofolioForm .form-control:focus,
+#portofolioForm textarea:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* -----------------------------
+   Tabel Portofolio
+----------------------------- */
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: #0d6efd;
+  color: white;
+  border-bottom: 2px solid #0a58ca;
+}
+
+.table td {
+  background-color: #ffffff;
+  color: #2c3e50;
+}
+
+/* -----------------------------
+   Gambar dalam Tabel
+----------------------------- */
+#portofolio-list img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* -----------------------------
+   Tombol Tambah Portofolio
+----------------------------- */
+#addPortofolioBtn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 50px;
+  background-color: #0d6efd;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#addPortofolioBtn:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.03);
+}
+
+/* -----------------------------
+   Responsiveness
+----------------------------- */
+@media (max-width: 768px) {
+  #addPortofolioBtn {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  #portofolio-list img {
+    width: 80px;
+  }
+}
+
+/* ==================================================
+   End Portofolio
+================================================== */
+
+/* ==================================================
+   Start Order - Kelola Pemesanan
+================================================== */
+
+/* ---------------
+   Modal Styling
+---------------- */
+#orderModal .modal-dialog {
+  max-width: 600px;
+}
+
+#orderModal .modal-header {
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+#orderModal .modal-title {
+  font-weight: 600;
+}
+
+#orderModal .btn-close {
+  filter: brightness(0) invert(1);
+}
+
+/* ---------------
+   Form Styling
+---------------- */
+#orderForm .form-label {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+#orderForm .form-control,
+#orderForm .form-select {
+  border-radius: 10px;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+}
+
+#orderForm .form-control:focus,
+#orderForm .form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+/* ---------------
+   Tabel Styling
+---------------- */
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.75rem;
+}
+
+.table th {
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-bottom: 2px solid #0a58ca;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.table td {
+  background-color: #ffffff;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+/* ---------------
+   Tombol Aksi
+---------------- */
+#addOrderBtn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 50px;
+  background-color: #0d6efd;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(25, 135, 84, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#addOrderBtn:hover {
+  background-color: #0d6efd;
+  transform: scale(1.03);
+}
+
+/* ---------------
+   Button Table Actions
+---------------- */
+.btn-warning,
+.btn-danger {
+  font-size: 0.875rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+}
+
+/* ---------------
+   Responsiveness
+---------------- */
+@media (max-width: 768px) {
+  #addOrderBtn {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  #orderModal .modal-dialog {
+    max-width: 95%;
+  }
+}
+
+/* ==================================================
+   End Order
+================================================== */
